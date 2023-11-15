@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "question": "Ervaar je vaak stress op het werk?",
+        "category": "stress"
+    },
+    {
+        "id": 2,
+        "question": "Kom je soms gespannen thuis van het werk?",
+        "category": "stress"
+    },
+    {
+        "id": 3,
+        "question": "Lig je soms wakker van het werk?",
+        "category": "stress"
+    },
+    {
+        "id": 4,
+        "question": "Vind je je job meestal boeiend?",
+        "category": "uitdaging"
+    },
+    {
+        "id": 5,
+        "question": "Word je voldoende uitgedaagd in je job?",
+        "category": "uitdaging"
+    },
+    {
+        "id": 6,
+        "question": "Is je job nog spannend genoeg voor je?",
+        "category": "uitdaging"
+    },
+    {
+        "id": 7,
+        "question": "Vind je je job zinvol?",
+        "category": "zingeving"
+    },
+    {
+        "id": 8,
+        "question": "Voel je je goed bij de organisatie/het bedrijf waarvoor je werkt?",
+        "category": "zingeving"
+    },
+    {
+        "id": 9,
+        "question": "Past je job bij jouw interesses?",
+        "category": "zingeving"
+    },
+    {
+        "id": 10,
+        "question": "Word je voldoende gerespecteerd door je collega's?",
+        "category": "waardering"
+    },
+    {
+        "id": 11,
+        "question": "Krijg je af en toe een compliment voor het werk dat je doet?",
+        "category": "waardering"
+    },
+    {
+        "id": 12,
+        "question": "Ben je soms trots op je werk?",
+        "category": "waardering"
+    },
+    {
+        "id": 13,
+        "question": "Vind je dat je voldoende wordt betaald voor het werk dat je doet?",
+        "category": "worklife"
+    },
+    {
+        "id": 14,
+        "question": "Is de afstand naar het werk voor jou OK?",
+        "category": "worklife"
+    },
+    {
+        "id": 15,
+        "question": "Geeft je job je voldoende vrije tijd?",
+        "category": "worklife"
+    },
+    {
+        "id": 16,
+        "question": "Geeft je job je energie?",
+        "category": "competenties"
+    },
+    {
+        "id": 17,
+        "question": "Past je job bij je vaardigheden?",
+        "category": "competenties"
+    },
+    {
+        "id": 18,
+        "question": "Kan je nog groeien in je job?",
+        "category": "competenties"
+    }
+]
