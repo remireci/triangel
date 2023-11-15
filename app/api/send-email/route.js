@@ -5,7 +5,7 @@ import { render } from "@react-email/render";
 import { headers } from "next/headers";
 
 // Function to generate HTML content for the email
-export function generateEmailContent(data) {
+function generateEmailContent(data) {
   const styles = `
   /* Define styles for the categories */
   // .result-category {
