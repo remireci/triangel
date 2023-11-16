@@ -1,8 +1,6 @@
-import { redirect } from "next/navigation";
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 import { render } from "@react-email/render";
-import { headers } from "next/headers";
 
 // Function to generate HTML content for the email
 function generateEmailContent(data) {
@@ -135,30 +133,13 @@ export async function POST(req, res) {
   
     try {
       const data = await req.json();
-      sendEmail(data);
+      // await sendEmail(data);
 
-      // const emailResult = await sendEmail(data);
-      // return NextResponse.json({ message: emailResult }, { status: 200 });
+      const emailResult = await sendEmail(data);
+      return NextResponse.json({ message: emailResult }, { status: 200 });
     } catch (error) {
       console.error('Error:', error);
       return NextResponse.error(error, { status: 500 });
-    }
-  
-  const myHeaders = headers();
-  // // Retrieve the secret token from URL
-  // const token = searchParams.token;
-  // // Verify the secret token
-  // if (token !== process.env.NEXT_PUBLIC_TOKEN) {
-  //   // res.status(403).send("Unauthorized");
-  //   return;
-  // };
-  // // Determine the host and protocol from the request
-  const host = myHeaders.get("host");
-  const protocol = host.startsWith("localhost") ? "http" : "https"; 
-
-  // Construct the redirect URL
-  const redirectUrl = `${protocol}://${host}/confirmation/`;
-
-  redirect(redirectUrl);
+    }  
 }
 
