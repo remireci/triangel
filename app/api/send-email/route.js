@@ -113,7 +113,7 @@ async function sendEmail(data) {
         address: "administrator@reciproque.eu",
       },
       replyTo: "",
-      to: data.email,
+      to: "jan.martens@telenet.be",
       subject: "Loopbaantest: Aanvraag voor begeleiding",
       html: emailContent,
     };
