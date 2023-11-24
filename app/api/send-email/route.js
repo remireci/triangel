@@ -110,10 +110,10 @@ async function sendEmail(data) {
     const mailData = {
       from: {
         name: `Reciproque`,
-        address: "administrator@reciproque.eu",
+        address: "info@reciproque.eu",
       },
       replyTo: "",
-      to: "jan.martens@telenet.be",
+      to: "d.mertens@scarlet.be",
       subject: "Loopbaantest: Aanvraag voor begeleiding",
       html: emailContent,
     };

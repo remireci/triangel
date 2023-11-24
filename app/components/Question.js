@@ -16,7 +16,7 @@ const Question = ({ question, category, onAnswer }) => {
   ];
 
   const updateScore = (valueToUpdate) => {
-    
+
     const index = data.findIndex(item => item.category === category);
 
     // If the category is found
@@ -42,18 +42,27 @@ const Question = ({ question, category, onAnswer }) => {
 
 
   return (
-    <div className="bg-gray-200 p-4 rounded shadow-md">
-      <p className="text-lg font-bold mb-4">{question}</p>
-      {/* Add options for 'yes', 'no', and 'I don't know' */}
-      <button onClick={() => updateScore("yes")} className="bg-blue-500 text-white px-4 py-2 rounded mr-2">
-        Ja
-      </button>
-      <button onClick={() => updateScore("no")} className="bg-red-500 text-white px-4 py-2 rounded mr-2">
-        Nee
-      </button>
-      <button onClick={() => updateScore("irr")} className="bg-gray-500 text-white px-4 py-2 rounded">
-        Niet van toepassing
-      </button>
+    <div className="flex flex-row bg-[#cfe0e8] min-h-screen px-4 md:px-0 pt-28 md:pt-36 lg:pt-48">
+      <div className='w-0 md:w-1/4 lg:w-1/4'></div>
+      <div className='w-full md:w-1/2 lg:w-1/4 h-60 px-4 flex flex-col justify-between bg-[#daebe8] rounded shadow-md'>
+        {/* <div className=''> */}
+          <div className='text-center mt-8 px-4'>
+            <p className="text-xl mb-4">{question}</p>
+          </div>
+          <div className='flex flex-row justify-center mb-8'>
+            <button onClick={() => updateScore("yes")} className="bg-[#87bdd8] hover:bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2">
+              Ja
+            </button>
+            <button onClick={() => updateScore("no")} className="bg-[#87bdd8] hover:bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2">
+              Nee
+            </button>
+            <button onClick={() => updateScore("irr")} className="bg-[#87bdd8] hover:bg-blue-800 text-sm text-white px-4 py-2 rounded">
+              Niet van toepassing
+            </button>
+          </div>
+        {/* </div> */}
+      </div>
+      <div className='w-0 md:w-1/4 lg:w-1/2'></div>
     </div>
   );
 };

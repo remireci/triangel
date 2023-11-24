@@ -76,6 +76,7 @@ const Result = () => {
 
             if (response.ok) {
                 console.log('Email sent successfully');
+                toast.error('Please provide a valid email address');
 
                 router.push("/confirmation");
             } else {
@@ -89,14 +90,15 @@ const Result = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
-            <div className="h-auto mt-8">
+        <div className="flex flex-row min-h-screen px-4 md:px-0 pt-28 md:pt-36 lg:pt-48">
+            <div className='w-0 md:w-1/4 lg:w-1/4'></div>
+            <div className="w-full md:w-1/2 lg:w-1/4 px-4 lg:px-0 py-4 mt-8 h-1/2 bg-[#daebe8] rounded shadow-md">
                 <div className="flex flex-col items-center mt-auto">
-                    <p className="text-2xl font-bold mb-12">Your Career Advice Result</p>
+                    <p className="text-2xl font-bold mb-12">Het resultaat van je test:</p>
                     {categoryData && categoryData.length > 0 ? (
                         <div>
                             {categoryData.map((category, index) => (
-                                <div key={index} className="result-category flex items-center">
+                                <div key={index} className="result-category flex items-center my-2">
                                     <span style={{ width: '24px', height: '24px', borderRadius: '50%', display: 'inline-block', marginRight: '8px', backgroundColor: getCircleColor(category.result) }}></span>
                                     <p>{category.category}: {category.result}</p>
                                 </div>
@@ -109,9 +111,10 @@ const Result = () => {
                 </div>
                 <div className="flex flex-col items-center mt-8">
                     <div className="mt-6 mb-6">
-                        <p>Vul hieronder je mail adres in.</p>
-                        <p>Een van onze job coaches zal je contacteren.</p>
+                        <p>Vul hieronder je mailadres in.</p>
+                        <p>Een jobcoach zal je contacteren.</p>
                     </div>
+                    <div>
                     <form onSubmit={handleSubmit}>
                         {/* Your form inputs for result and email */}
                         {/* <input type="text" value={result} onChange={(e) => setResult(e.target.value)} /> */}
@@ -119,18 +122,23 @@ const Result = () => {
                             type="email"
                             placeholder="email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)} />
+                            onChange={(e) => setEmail(e.target.value)} 
+                            className="px-2"
+                            />
 
                         <button
-                            className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 ml-4"
+                            className="bg-[#87bdd8] text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-2 py-2.5 text-center me-2 mb-2 ml-4"
                             data-te-ripple-init
                             type="submit"
                         >
                             Send Email
                         </button>
                     </form>
+
+                    </div>
                 </div>
             </div>
+            <div className='w-0 md:w-1/4 lg:w-1/2'></div>
         </div>
 
     );

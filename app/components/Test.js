@@ -77,25 +77,29 @@ const Test = () => {
 
     if (isTestCompleted) {
         return (
-            <div className="flex flex-col items-center justify-center h-screen">
-              <div className="mt-10">
-                <p className="text-xl font-bold">Test Completed!</p>
-              </div>
-              <div className="flex flex-col items-center justify-end mt-auto mb-24">
-                <button onClick={handleCompletion} className="bg-orange-400 text-white px-4 py-2 rounded shadow mt-8">
-                  Go to Result
-                </button>
-              </div>
+            <div className="flex flex-row h-screen px-4 md:px-0 pt-28 md:pt-36 lg:pt-48">
+                <div className='w-0 md:w-1/4 lg:w-1/4'></div>
+                <div className="flex flex-col justify-between h-60 w-full md:w-1/2 lg:w-1/5 py-8 mt-10 text-center bg-[#daebe8] rounded shadow-md">
+                    <div>
+                        <p className="text-xl">Test afgerond!</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-end mt-auto mt-12">
+                        <button onClick={handleCompletion} className="bg-[#87bdd8] text-white px-4 py-2 rounded shadow">
+                            Ga naar het resultaat
+                        </button>
+                    </div>
+                </div>
+                <div className='w-0 md:w-1/4 lg:w-1/2'></div>
             </div>
-          );
+        );
     }
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="h-screen">
             <Question
                 question={questionsData[currentQuestion].question}
                 category={questionsData[currentQuestion].category}
-                onAnswer={handleAnswer}                
+                onAnswer={handleAnswer}
             />
         </div>
     );
