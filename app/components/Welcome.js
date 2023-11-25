@@ -5,7 +5,7 @@ const Welcome = () => {
   return (
     <div className="flex flex-row h-screen bg-[#cfe0e8] px-4 md:px-0 pt-28 md:pt-36 lg:pt-48">
       <div className='w-0 md:w-1/4 lg:w-1/4'></div>
-      <div className='w-full md:w-1/2 lg:w-1/4 h-1/2 px-4 py-4 flex flex-col justify-between bg-[#daebe8] rounded shadow-md'>
+      <div className='w-full md:w-1/2 lg:w-1/4 h-80 px-4 py-4 flex flex-col justify-between bg-[#daebe8] rounded shadow-md'>
         <h1 className="text-xl font-bold mb-6 text-black">
           What is Lorem Ipsum?
         </h1>
