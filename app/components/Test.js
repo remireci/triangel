@@ -77,7 +77,7 @@ const Test = () => {
 
     if (isTestCompleted) {
         return (
-            <div className="flex flex-row h-screen px-4 md:px-0 pt-28 md:pt-36 lg:pt-48">
+            <div className="flex flex-row px-4 md:px-0 pt-28 md:pt-36 lg:pt-48">
                 <div className='w-0 md:w-1/4 lg:w-1/4'></div>
                 <div className="flex flex-col justify-between h-60 w-full md:w-1/2 lg:w-1/5 py-8 mt-10 text-center bg-[#daebe8] rounded shadow-md">
                     <div>
@@ -95,10 +95,11 @@ const Test = () => {
     }
 
     return (
-        <div className="h-screen">
+        <div className="">
             <Question
                 question={questionsData[currentQuestion].question}
                 category={questionsData[currentQuestion].category}
+                id={questionsData[currentQuestion].id}
                 onAnswer={handleAnswer}
             />
         </div>

@@ -18,6 +18,34 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #b7d7e8; /* Set the background color to #b7d7e8 */
+  background-color: #1c7eb4; /* Set the background color to #b7d7e8 */   
+  position: relative;
 }
 
+body::after {
+  content: '';
+  display: block;
+  height: 10px; /* Set same as footer's height */
+}
+
+/* Original image */
+.hover-switch-image-fb img {
+  content: url("/images/107153_circle_facebook_icon.png");
+  filter: brightness(90%);
+}
+
+/* Image switch on hover */
+.hover-switch-image-fb:hover img {
+  content: url("/images/107175_circle_facebook_icon.png");
+}
+
+/* Original image */
+.hover-switch-image-ig img {
+  content: url("/images/43-432901_instagram-grey-circle-logo-instagram-bleu.png");
+  filter: brightness(70%);
+}
+
+/* Image switch on hover */
+.hover-switch-image-ig:hover img {
+  content: url("/images/283-2831855_insta-icon-circle-ltblue-instagram-icon-in-white.png");
+}

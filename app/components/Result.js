@@ -1,6 +1,5 @@
 // components/Result.js
 "use client"
-
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from 'react-toastify';
@@ -13,26 +12,33 @@ const Result = () => {
     // const [result, setResult] = useState(''); // Manage result state
     const [email, setEmail] = useState('');
 
-
     useEffect(() => {
         const storedCategoryData = JSON.parse(localStorage.getItem('categoryData'));
 
         if (!storedCategoryData) {
             router.push("/test");
         } else {
+
             const updatedCategoryData = storedCategoryData.map(item => {
                 let result;
                 if (item.category === "stress") {
-                    result = item.no - item.yes;
+                    if (item.irr === 3) {
+                        result = 5;
+                    } else {
+                        result = item.no - item.yes;
+                    }
                 } else {
-                    result = item.yes - item.no;
+                    if (item.irr === 3) {
+                        result = 5;
+                    } else {
+                        result = item.yes - item.no;
+                    }
+                    
                 };
 
                 return { ...item, result };
             });
-
             setCategoryData(updatedCategoryData);
-
         }
     }, []);
 
@@ -46,6 +52,8 @@ const Result = () => {
             return 'yellow';
         } else if (result >= 0 && result <= 3) {
             return 'green';
+        } else if (result === 5){
+            return 'black';
         }
         return ''; // Default color or handle other cases
     };
@@ -56,14 +64,11 @@ const Result = () => {
         // Regular expression for email validation
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/;
 
-
-
         if (!emailRegex.test(email)) {
             // Invalid email format
             toast.error('Please provide a valid email address');
             return;
         }
-
 
         try {
             const response = await fetch('/api/send-email', {
@@ -90,14 +95,14 @@ const Result = () => {
     };
 
     return (
-        <div className="flex flex-row min-h-screen px-4 md:px-0 pt-28 md:pt-36 lg:pt-48">
+        <div className="flex flex-row px-4 md:px-0 pb-28 pt-28 md:pt-36 lg:pt-36">
             <div className='w-0 md:w-1/4 lg:w-1/4'></div>
-            <div className="w-full md:w-1/2 lg:w-1/4 px-4 lg:px-0 py-4 mt-8 h-1/2 bg-[#daebe8] rounded shadow-md">
+            <div className="w-full md:w-1/2 lg:w-1/4 px-4 lg:px-0 py-4 h-1/2 bg-[#daebe8] rounded shadow-md">
                 <div className="flex flex-col items-center mt-auto">
                     <p className="text-2xl font-bold mb-12">Het resultaat van je test:</p>
                     {categoryData && categoryData.length > 0 ? (
                         <div>
-                            {categoryData.map((category, index) => (
+                            {categoryData.slice(0, 6).map((category, index) => (
                                 <div key={index} className="result-category flex items-center my-2">
                                     <span style={{ width: '24px', height: '24px', borderRadius: '50%', display: 'inline-block', marginRight: '8px', backgroundColor: getCircleColor(category.result) }}></span>
                                     <p>{category.category}: {category.result}</p>
@@ -115,25 +120,25 @@ const Result = () => {
                         <p>Een jobcoach zal je contacteren.</p>
                     </div>
                     <div>
-                    <form onSubmit={handleSubmit}>
-                        {/* Your form inputs for result and email */}
-                        {/* <input type="text" value={result} onChange={(e) => setResult(e.target.value)} /> */}
-                        <input
-                            type="email"
-                            placeholder="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)} 
-                            className="px-2"
+                        <form onSubmit={handleSubmit}>
+                            {/* Your form inputs for result and email */}
+                            {/* <input type="text" value={result} onChange={(e) => setResult(e.target.value)} /> */}
+                            <input
+                                type="email"
+                                placeholder="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="px-2"
                             />
 
-                        <button
-                            className="bg-[#87bdd8] text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-2 py-2.5 text-center me-2 mb-2 ml-4"
-                            data-te-ripple-init
-                            type="submit"
-                        >
-                            Send Email
-                        </button>
-                    </form>
+                            <button
+                                className="bg-[#87bdd8] text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-2 py-2.5 text-center me-2 mb-2 ml-4"
+                                data-te-ripple-init
+                                type="submit"
+                            >
+                                Send Email
+                            </button>
+                        </form>
 
                     </div>
                 </div>

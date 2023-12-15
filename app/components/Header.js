@@ -10,16 +10,25 @@ const Header = () => {
   }
 
   return (
-    <header className="text-3xl font-medium h-32 tracking-widest text-slate-600 text-center bg-[#daebe8]">
-      <div className="h-8 md:h-15 bg-[#daebe8]"></div>
-      <div className="flex flex-row">
-        <div className="w-0 lg:w-1/4"></div>
-        <div className="w-full md:w1/2 lg:w-1/4 pt-1">
-          <a href="/">{header_text}</a>
-        </div>
-        <div className="w-0 lg:w-1/4"></div>
+    <header className="text-3xl h-36 lg:h-48 font-light tracking-widest text-slate-600 text-center bg-[#ffffff]">
+
+      <div className="h-9 w-full bg-[#2f8bc9]">
       </div>
-      <div className="mt-10 h-8 bg-[#87bdd8] z-10"></div>
+      <div className="flex flex-col md:flex-row h-full items-center justify-center">
+        <div className="flex flex-col md:flex-row h-full items-center justify-between w-full lg:w-3/4">
+          <div className="md:h-15 items-center ml-2 lg:ml-0 mb-7">            
+              <img src="images/logo200.png"/>            
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-center z-10">
+            {/* <div className="w-0 lg:w-1/4"></div> */}
+            <div className="w-full md:w1/2 pt-1">
+              <a href="/">{header_text}</a>
+            </div>
+            {/* <div className="w-0 lg:w-1/4"></div> */}
+          </div>
+          <div className=""></div>
+        </div>
+      </div>
     </header>
   );
 };

@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Footer from "./components/Footer";
 
 const roboto = Roboto({
-  weight: ['400', '700'],
+  weight: ['100', '300', '400', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
@@ -24,10 +24,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body className={roboto.className}>
-        <Header />
-        {children}
-        <Footer />
+        <div className="flex flex-col bg-[#ffffff] min-h-screen">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   )

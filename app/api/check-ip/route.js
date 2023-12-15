@@ -1,4 +1,4 @@
-// get-ip route.js
+// check-ip route.js
 import { NextRequest, NextResponse, userAgent } from "next/server";
 import { headers } from "next/headers";
 
