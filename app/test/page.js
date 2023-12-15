@@ -4,7 +4,7 @@ import Nosecondtest from '../components/Nosecondtest';
 import sqlite3 from 'sqlite3';
 import initializeDatabase from '../lib/connect';
 import crypto from "crypto";
-
+import { headers } from "next/headers";
 // Call the initializeDatabase function
 
 const TestPage = async () => {
@@ -20,7 +20,11 @@ const isTestDone = async () => {
   initializeDatabase();
 
   try {
-    const response = await fetch(`http://localhost:3000/api/get-ip`, { cache: 'no-store' });
+    const myHeaders = headers();
+    const host = myHeaders.get("host");
+    const protocol = host.startsWith("localhost") ? "http" : "https";
+      
+    const response = await fetch(`${protocol}://${host}/api/get-ip`, { cache: 'no-store' });
     const userData = await response.json();
     const ipAddress = userData.ip_address;
 

@@ -43,13 +43,11 @@ async function removeIpAddress(ipAddress) {
     }
 }
 
-
-/** @param {NextRequest} req */
 export async function GET(req) {
 
     try {
-        const headersList = headers();
-        const ip = headersList.get("x-forwarded-for");
+        const ip = (req.headers.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0]
+        console.log(ip);
 
         const deleteResult = await removeIpAddress(ip);
 

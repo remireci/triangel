@@ -2,6 +2,7 @@
 import Result from '../components/Result';
 import sqlite3 from 'sqlite3';
 import crypto from "crypto";
+import { headers } from "next/headers";
 
 const ResultPage = async () => {
   const address = await addIpAddress()
@@ -21,7 +22,11 @@ const ResultPage = async () => {
 // if not, add to database
 const addIpAddress = async () => {
   try {
-    const response = await fetch(`http://localhost:3000/api/get-ip`, { cache: 'no-store' });
+    const myHeaders = headers();
+    const host = myHeaders.get("host");
+    const protocol = host.startsWith("localhost") ? "http" : "https";
+  
+    const response = await fetch(`${protocol}://${host}/api/get-ip`, { cache: 'no-store' });
     const userData = await response.json();
     const ipAddress = userData.ip_address;
 
