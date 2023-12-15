@@ -25,7 +25,7 @@ const ResultPage = async () => {
 const addIpAddress = async () => {
   try {
     const header = headers()
-    const ipAddress = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0]    
+    const ipAddress = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0]
 
     const db = new sqlite3.Database('users.db');
 
