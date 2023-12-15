@@ -3,6 +3,7 @@ import Result from '../components/Result';
 import sqlite3 from 'sqlite3';
 import crypto from "crypto";
 import { headers } from "next/headers";
+import path from "path";
 
 export const dynamic = 'force-dynamic';
 
@@ -27,7 +28,12 @@ const addIpAddress = async () => {
     const header = headers()
     const ipAddress = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0]
 
-    const db = new sqlite3.Database('users.db');
+    const projectRoot = process.cwd();
+    const dbPath = path.join(projectRoot, 'app', 'data', 'users.db');
+
+    console.log(dbPath);
+
+    const db = new sqlite3.Database(dbPath);
 
     const query = `SELECT COUNT(*) AS count FROM users WHERE ip_address = ?`;
 
