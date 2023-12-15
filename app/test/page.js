@@ -7,6 +7,8 @@ import crypto from "crypto";
 import { headers } from "next/headers";
 // Call the initializeDatabase function
 
+export const dynamic = 'force-dynamic';
+
 const TestPage = async () => {
   const testDone = await isTestDone();  
   if (testDone) {

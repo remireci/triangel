@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { headers } from "next/headers";
 import sqlite3 from 'sqlite3';
 import crypto from "crypto";
 
+export const dynamic = 'force-dynamic';
 
 async function removeIpAddress(ipAddress) {
 

@@ -4,6 +4,8 @@ import sqlite3 from 'sqlite3';
 import crypto from "crypto";
 import { headers } from "next/headers";
 
+export const dynamic = 'force-dynamic';
+
 const ResultPage = async () => {
   const address = await addIpAddress()
   return (
