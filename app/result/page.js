@@ -24,13 +24,8 @@ const ResultPage = async () => {
 // if not, add to database
 const addIpAddress = async () => {
   try {
-    const myHeaders = headers();
-    const host = myHeaders.get("host");
-    const protocol = host.startsWith("localhost") ? "http" : "https";
-  
-    const response = await fetch(`${protocol}://${host}/api/get-ip`, { cache: 'no-store' });
-    const userData = await response.json();
-    const ipAddress = userData.ip_address;
+    const header = headers()
+    const ipAddress = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0]    
 
     const db = new sqlite3.Database('users.db');
 

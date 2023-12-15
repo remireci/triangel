@@ -47,7 +47,7 @@ export async function GET(req) {
 
     try {
         const ip = (req.headers.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0]
-        console.log(ip);
+        console.log("this is the user's address", ip);
 
         const deleteResult = await removeIpAddress(ip);
 
