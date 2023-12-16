@@ -6,14 +6,14 @@ import { headers } from "next/headers";
 export const dynamic = 'force-dynamic';
 
 const ResultPage = async () => {
-  const address = await addIpAddress()
+  const encryptedAddress = await addIpAddress()
+  
   return (
     <div className=''>
       <div>
-        <Result />
-        {/* <Link href="/test">
-
-        </Link> */}
+        <Result
+          encryptedAddress={encryptedAddress}
+        />
       </div>
     </div>
   );
@@ -26,6 +26,8 @@ const addIpAddress = async () => {
     const header = headers()
     const ipAddress = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0]
 
+    // THIS IS CODE WHEN USING SQLITE; STORE IT SOMEWHERE IN CASE NEEDED
+    // IN ANOTHER PROJECT (SQLITE NOT COMPATIBLE WITH VERCEL!!!)
     // const projectRoot = process.cwd();
     // const dbPath = path.join(projectRoot, 'app', 'data', 'users.db');
 
@@ -54,25 +56,18 @@ const addIpAddress = async () => {
     const protocol = host.startsWith("localhost") ? "http" : "https";
 
     // Construct the redirect URL
-    const redirectUrl = `${protocol}://${host}/api/add-ip?ip=${encryptedText}&mail=ande@gmail.com`;
+    const redirectUrl = `${protocol}://${host}/api/add-ip?ip=${encryptedText}&mail=`;
 
     const response = await fetch(redirectUrl);
     if (response.ok) {
       console.log('IP address added successfully to the database');
-      // router.push('/'); // Redirect to another page after adding IP
+      return encryptedText;
     } else {
-      console.error('Failed to add IP address to the database');
+      console.error('IP address not added, is already in the database');
     }
   } catch (error) {
     console.error('Error adding IP address:', error);
   }
-
-// } catch (error) {
-//   console.error('Error fetching dynamic data:', error);
-//   // Handle errors
-//   // TODO display "you have already done this test"
-//   return {}; // or display an error message
-// }
-  }
+}
 
 export default ResultPage;

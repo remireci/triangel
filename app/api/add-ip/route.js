@@ -14,18 +14,23 @@ export async function GET(request) {
         const existingIp = await sql`
       SELECT * FROM Ips WHERE Ip = ${ipAddress};
     `;
-        console.log("this is", existingIp.rows);
         if (existingIp.rows.length > 0) {
-            return NextResponse.json({ message: 'IP address already exists' }, { status: 400 });
+            // If the IP address already exists, update the existing record with the provided email
+            await sql`
+      UPDATE Ips SET Mail = ${mail} WHERE Ip = ${ipAddress};
+    `;
+            // return NextResponse.json({ message: 'Mail added to existing IP address' }, { status: 200 });
         } else {
+            // If the IP address doesn't exist, insert a new record with the IP and email
+            // This option should never exist!!!
             await sql`
         INSERT INTO Ips (Ip, Mail) VALUES (${ipAddress}, ${mail});
       `;
+            //   return NextResponse.json({ message: 'New record with ip and mail created' }, { status: 200 });
         }
+        const ips = await sql`SELECT * FROM Ips;`;
+        return NextResponse.json({ ips }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
-
-    const ips = await sql`SELECT * FROM Ips;`;
-    return NextResponse.json({ ips }, { status: 200 });
 }

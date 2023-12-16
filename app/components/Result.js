@@ -4,16 +4,13 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from 'react-toastify';
 
-
-const Result = () => {
-    // Add logic to calculate and display the result based on user's answers
+const Result = ({ encryptedAddress }) => {    // Add logic to calculate and display the result based on user's answers
     const router = useRouter();
     const [categoryData, setCategoryData] = useState([]);
-    // const [result, setResult] = useState(''); // Manage result state
     const [email, setEmail] = useState('');
 
     useEffect(() => {
-        const storedCategoryData = JSON.parse(localStorage.getItem('categoryData'));
+        const storedCategoryData = JSON.parse(localStorage.getItem('categoryData'));        
 
         if (!storedCategoryData) {
             router.push("/test");
@@ -33,7 +30,6 @@ const Result = () => {
                     } else {
                         result = item.yes - item.no;
                     }
-                    
                 };
 
                 return { ...item, result };
@@ -52,7 +48,7 @@ const Result = () => {
             return 'yellow';
         } else if (result >= 0 && result <= 3) {
             return 'green';
-        } else if (result === 5){
+        } else if (result === 5) {
             return 'black';
         }
         return ''; // Default color or handle other cases
@@ -82,10 +78,31 @@ const Result = () => {
             if (response.ok) {
                 console.log('Email sent successfully');
                 toast.error('Please provide a valid email address');
-
                 router.push("/confirmation");
             } else {
                 console.error('Error sending email');
+                // Handle error
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle error
+        }
+
+        try {
+            // The add-ip route will also add the emailaddress
+            const response = await fetch(`/api/add-ip?ip=${encryptedAddress}&mail=${email}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.ok) {
+                console.log('Email added to the database');
+                toast.success('Email added successfully');
+                router.push("/confirmation");
+            } else {
+                console.error('Error adding email to the database');
                 // Handle error
             }
         } catch (error) {
@@ -109,7 +126,6 @@ const Result = () => {
                                 </div>
                             ))}
                         </div>
-
                     ) : (
                         <p>No data available</p>
                     )}
@@ -139,13 +155,11 @@ const Result = () => {
                                 Send Email
                             </button>
                         </form>
-
                     </div>
                 </div>
             </div>
             <div className='w-0 md:w-1/4 lg:w-1/2'></div>
         </div>
-
     );
 };
 
