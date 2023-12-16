@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import sqlite3 from 'sqlite3';
 import crypto from "crypto";
+import { sql } from '@vercel/postgres';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,24 +23,33 @@ async function removeIpAddress(ipAddress) {
         // finalize the encryption
         encryptedText += cipher.final("hex");
 
-        const db = new sqlite3.Database('users.db');
+        if (!encryptedText) {
+            throw new Error('IP address is required');
+        }
 
-        // Query to delete the IP address
-        const query = 'DELETE FROM users WHERE ip_address = ?';
+        const existingIp = await sql`
+            SELECT * FROM Ips WHERE Ip = ${encryptedText};
+          `;
 
-        // Execute the query to delete the encrypted IP address
-        db.run(query, [encryptedText], (err) => {
-            if (err) {
-                console.error('Error removing IP address:', err.message);
-            } else {
-                console.log('Successfully removed IP address:', ipAddress);
-            }
-            // Close the database connection
-            db.close();
-        });
+          console.log("this is the", existingIp);
+
+        if (existingIp.rows.length === 0) {
+            console.log("length = 0")
+            return NextResponse.json({ message: 'IP address does not exist' }, { status: 404 });
+        } else {
+            for (const ipEntry of existingIp.rows) {
+                console.log("this is entry", ipEntry);
+                await sql`
+                  DELETE FROM Ips WHERE Ip = ${ipEntry.ip};
+                `;
+              }
+        }
     } catch (error) {
-        console.error('Error while removing IP address:', error);
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
+
+    const ips = await sql`SELECT * FROM Ips;`;
+    return NextResponse.json({ ips }, { status: 200 });
 }
 
 export async function GET(req) {
@@ -55,6 +64,5 @@ export async function GET(req) {
     } catch (error) {
         console.error('Error:', error);
         return NextResponse.error(error, { status: 500 });
-
     }
 }

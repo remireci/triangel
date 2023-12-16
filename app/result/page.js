@@ -1,16 +1,14 @@
 // pages/result.js
 import Result from '../components/Result';
-import sqlite3 from 'sqlite3';
 import crypto from "crypto";
 import { headers } from "next/headers";
-import path from "path";
 
 export const dynamic = 'force-dynamic';
 
 const ResultPage = async () => {
   const address = await addIpAddress()
   return (
-    <div className=''>      
+    <div className=''>
       <div>
         <Result />
         {/* <Link href="/test">
@@ -28,14 +26,12 @@ const addIpAddress = async () => {
     const header = headers()
     const ipAddress = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0]
 
-    const projectRoot = process.cwd();
-    const dbPath = path.join(projectRoot, 'app', 'data', 'users.db');
+    // const projectRoot = process.cwd();
+    // const dbPath = path.join(projectRoot, 'app', 'data', 'users.db');
 
-    console.log(dbPath);
+    // const db = new sqlite3.Database(dbPath);
 
-    const db = new sqlite3.Database(dbPath);
-
-    const query = `SELECT COUNT(*) AS count FROM users WHERE ip_address = ?`;
+    // const query = `SELECT COUNT(*) AS count FROM users WHERE ip_address = ?`;
 
     // Generate a secret key for encryption and decryption.
     const secretKey = process.env.SECRET_KEY;
@@ -54,37 +50,29 @@ const addIpAddress = async () => {
     // finalize the encryption
     encryptedText += cipher.final("hex");
 
-    db.get(query, [encryptedText], (err, row) => {
-      if (err) {
-        console.error(err);
-        // Handle database query error
-      } else {
-        const exists = row.count > 0;
-        console.log("exists", exists)
-        if (exists) {
-          // TODO logic for 'no second test possible'
-          console.log(`The hardcoded IP ${ipAddress} exists in the users table.`);
-        } else {
+    const host = header.get("host");
+    const protocol = host.startsWith("localhost") ? "http" : "https";
 
-          db.run(`INSERT INTO users (ip_address, email) VALUES (?, ?)`, [encryptedText, ""], function (err) {
-            if (err) {
-              return console.error(err.message);
-            }
-            console.log(`A row has been inserted, from result, with rowid ${this.lastID}`);
-          });
+    // Construct the redirect URL
+    const redirectUrl = `${protocol}://${host}/api/add-ip?ip=${encryptedText}&mail=ande@gmail.com`;
 
-        }
-      }
-    });
-    // Close the database connection after the query is executed
-    db.close();
-    return {};
+    const response = await fetch(redirectUrl);
+    if (response.ok) {
+      console.log('IP address added successfully to the database');
+      // router.push('/'); // Redirect to another page after adding IP
+    } else {
+      console.error('Failed to add IP address to the database');
+    }
   } catch (error) {
-    console.error('Error fetching dynamic data:', error);
-    // Handle errors
-    // TODO display "you have already done this test"
-    return {}; // or display an error message
+    console.error('Error adding IP address:', error);
   }
-}
+
+// } catch (error) {
+//   console.error('Error fetching dynamic data:', error);
+//   // Handle errors
+//   // TODO display "you have already done this test"
+//   return {}; // or display an error message
+// }
+  }
 
 export default ResultPage;
