@@ -19,7 +19,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background-color: #1c7eb4; /* Set the background color to #b7d7e8 */   
-  position: relative;
+  position: relative;  
 }
 
 body::after {

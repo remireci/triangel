@@ -9,8 +9,6 @@ export const dynamic = 'force-dynamic';
 
 const TestPage = async () => {
   const testDone = await isTestDone();
-
-  console.log("is test done", testDone)
   if (testDone) {
     return <Nosecondtest />
   }

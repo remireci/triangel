@@ -31,8 +31,6 @@ async function removeIpAddress(ipAddress) {
             SELECT * FROM Ips WHERE Ip = ${encryptedText};
           `;
 
-          console.log("this is the", existingIp);
-
         if (existingIp.rows.length === 0) {
             console.log("length = 0")
             return NextResponse.json({ message: 'IP address does not exist' }, { status: 404 });
@@ -60,7 +58,7 @@ export async function GET(req) {
 
         const deleteResult = await removeIpAddress(ip);
 
-        return NextResponse.json({ message: deleteResult }, { status: 200 });
+        return NextResponse.json({ message: ip }, { status: 200 });
     } catch (error) {
         console.error('Error:', error);
         return NextResponse.error(error, { status: 500 });
