@@ -205,8 +205,8 @@ async function sendEmail(data, questions) {
 
     const mailDataCoach = {
       from: {
-        name: `Reciproque`,
-        address: "info@reciproque.eu",
+        name: `Triangel Loopbaantest`,
+        address: "info@loopbaantest-vlaanderen.be",
       },
       replyTo: "",
       to: ["dirk_mertens@fastmail.fm", "jan.martens@telenet.be"],
@@ -216,8 +216,8 @@ async function sendEmail(data, questions) {
 
     const mailDataClient = {
       from: {
-        name: `Reciproque`,
-        address: "info@reciproque.eu",
+        name: `Triangel Loopbaantest`,
+        address: "info@loopbaantest-vlaanderen.be",
       },
       replyTo: "",
       to: [data.email], // Use the client's email from the received data

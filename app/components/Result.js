@@ -136,7 +136,10 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                         <p>Een jobcoach zal je contacteren.</p>
                     </div>
                     <div>
-                        <form onSubmit={handleSubmit}>
+                        <form 
+                        onSubmit={handleSubmit}
+                        className="flex flex-col md:flex-row justify-center"
+                        >
                             {/* Your form inputs for result and email */}
                             {/* <input type="text" value={result} onChange={(e) => setResult(e.target.value)} /> */}
                             <input
@@ -144,11 +147,11 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                 placeholder="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="px-2"
+                                className="px-2 rounded"
                             />
 
                             <button
-                                className="bg-[#87bdd8] text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-2 py-2.5 text-center me-2 mb-2 ml-4"
+                                className="bg-[#87bdd8] text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded text-sm px-2 py-1 text-center me-2 mb-2 ml-4 mt-4 md:mt-0"
                                 data-te-ripple-init
                                 type="submit"
                             >
