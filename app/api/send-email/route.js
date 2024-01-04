@@ -5,7 +5,7 @@ import fs from "fs/promises";
 import path from "path";
 
 // Function to generate HTML content for the email
-function generateEmailContent(data, questions) {
+function generateEmailContent(data, questions, answers) {
   const styles = `
   /* Define styles for the categories */
   // .result-category {
@@ -183,8 +183,8 @@ function getCircleColor(result) {
 }
 
 // Function to send emails
-async function sendEmail(data, questions) {
-  const { htmlCoach, htmlClient } = generateEmailContent(data, questions);
+async function sendEmail(data, questions, answers) {
+  const { htmlCoach, htmlClient } = generateEmailContent(data, questions, answers);
   const smtpOptions = {
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT),
@@ -249,7 +249,11 @@ export async function POST(req, res) {
     const questionsData = await fs.readFile(questionsPath, 'utf-8');
     const questions = JSON.parse(questionsData);
 
-    const emailResult = await sendEmail(data, questions);
+    const answersPath = path.resolve('app', 'data', 'answers.json');
+    const answersData = await fs.readFile(answersPath, 'utf-8');
+    const answers = JSON.parse(answersData);
+
+    const emailResult = await sendEmail(data, questions, answers);
     return NextResponse.json({ message: emailResult }, { status: 200 });
   } catch (error) {
     console.error('Error:', error);

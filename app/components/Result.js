@@ -7,10 +7,13 @@ import { toast } from 'react-toastify';
 const Result = ({ encryptedAddress }) => {    // Add logic to calculate and display the result based on user's answers
     const router = useRouter();
     const [categoryData, setCategoryData] = useState([]);
+    const [answersData, setAnswersData] = useState([]);
+    const [expanded, setExpanded] = useState(false);
+    const [expandedCategories, setExpandedCategories] = useState([]);
     const [email, setEmail] = useState('');
 
     useEffect(() => {
-        const storedCategoryData = JSON.parse(localStorage.getItem('categoryData'));        
+        const storedCategoryData = JSON.parse(localStorage.getItem('categoryData'));
 
         if (!storedCategoryData) {
             router.push("/test");
@@ -38,6 +41,29 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         }
     }, []);
 
+    useEffect(() => {
+        const fetchAnswers = async () => {
+            try {
+                const response = await fetch('/api/answers');
+                const data = await response.json();
+                setAnswersData(data);
+            } catch (error) {
+                console.error('Error fetching answers:', error);
+            }
+        };
+
+        fetchAnswers();
+
+    }, []);
+
+    useEffect(() => {
+        // Initialize the expanded state for each category initially as false
+        if (categoryData.length > 0) {
+            setExpandedCategories(Array(categoryData.length).fill(false));
+        }
+    }, [categoryData]);
+
+
     const getCircleColor = (result) => {
 
         if (result === -3) {
@@ -53,6 +79,85 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         }
         return ''; // Default color or handle other cases
     };
+
+    // const getAnswer = (result, category) => {
+    //     if (answersData.length === 0) {
+    //         return 'Answers loading...';
+    //     }
+
+    //     if (result <= -1) {
+    //         const answer = answersData.find((item) => item.category === category);
+
+    //         const italicizeFirstWord = (text) => {
+    //             const colonIndex = text.indexOf(':');
+    //             if (colonIndex !== -1) {
+    //                 const firstPart = text.substring(0, colonIndex);
+    //                 const restPart = text.substring(colonIndex);
+    //                 return (
+    //                     <>
+    //                         <span><i>{firstPart}</i></span>
+    //                         {restPart}
+    //                     </>
+    //                 );
+    //             }
+    //             return text;
+    //         };
+
+
+    // return (
+    //     <>
+    //         <div>
+    //             <strong>{category}</strong>
+    //         </div>
+    //         <div>
+    //             <span>{answer.answer_0}</span>
+    //         </div>
+    //         <details>
+    //             <summary className="text-slate-400" onClick={toggleExpand}>
+    //                 {toggleSummaryText()}
+    //             </summary>
+    //             <div><span>{italicizeFirstWord(answer.answer_1)}</span></div>
+    //             <div className="mt-2"><span>{italicizeFirstWord(answer.answer_2)}</span></div>
+    //             <div className="mt-2"><span>{italicizeFirstWord(answer.answer_3)}</span></div>
+    //             <div className="mt-2"><span>{italicizeFirstWord(answer.answer_4)}</span></div>
+    //             {/* Add more spans for additional answers */}
+    //         </details>
+    //     </>
+    // );
+    // }
+    // Return 'result' or handle other cases here
+    // };
+
+    // Function to toggle the expanded state for a specific category at a given index
+    const toggleExpand = (index) => {
+        const updatedExpandedCategories = [...expandedCategories];
+        updatedExpandedCategories[index] = !expandedCategories[index];
+        setExpandedCategories(updatedExpandedCategories);
+    };
+
+    // Function to get the text for the summary based on the expanded state for a specific category
+    const toggleSummaryText = (index) => {
+        return expandedCategories[index] ? 'Toon minder' : 'Toon meer';
+    };
+
+    
+    const italicizeFirstWord = (text) => {
+
+        const colonIndex = text.indexOf(':');
+        if (colonIndex !== -1) {
+            const firstPart = text.substring(0, colonIndex);
+            const restPart = text.substring(colonIndex);
+            return (
+                <>
+                    <span><i>{firstPart}</i></span>
+                    {restPart}
+                </>
+            );
+        }
+        return text;
+    };
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -114,21 +219,51 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     return (
         <div className="flex flex-row px-4 md:px-0 pb-28 pt-28 md:pt-36 lg:pt-36">
             <div className='w-0 md:w-1/4 lg:w-1/4'></div>
-            <div className="w-full md:w-1/2 lg:w-1/4 px-4 lg:px-0 py-4 h-1/2 bg-[#daebe8] rounded shadow-md">
+            <div className="w-full md:w-1/2 lg:w-1/2 px-4 lg:px-0 py-4 h-1/2 bg-[#daebe8] rounded shadow-md">
                 <div className="flex flex-col items-center mt-auto">
                     <p className="text-2xl font-bold mb-12">Het resultaat van je test:</p>
                     {categoryData && categoryData.length > 0 ? (
                         <div>
                             {categoryData.slice(0, 6).map((category, index) => (
-                                <div key={index} className="result-category flex items-center my-2">
-                                    <span style={{ width: '24px', height: '24px', borderRadius: '50%', display: 'inline-block', marginRight: '8px', backgroundColor: getCircleColor(category.result) }}></span>
-                                    <p>{category.category}: {category.result}</p>
+                                <div key={index} className="result-category items-center my-2 px-16">
+                                    {category.result <= -1 ? (
+                                        <>
+                                            {answersData.map((answer, ansIndex) => {
+                                                if (answer.category === category.category) {
+                                                    return (
+                                                        <div key={ansIndex}>
+                                                            <div>
+                                                                <strong>{category.category}</strong>
+                                                            </div>
+                                                            <span>{answer.answer_0}</span>
+                                                            <details>
+                                                                <summary className="text-slate-400" onClick={() => toggleExpand(index)}>
+                                                                    {toggleSummaryText(index)}
+                                                                </summary>
+                                                                <div><span>{italicizeFirstWord(answer.answer_1)}</span></div>
+                                                                <div className="mt-2"><span>{italicizeFirstWord(answer.answer_2)}</span></div>
+                                                                <div className="mt-2"><span>{italicizeFirstWord(answer.answer_3)}</span></div>
+                                                                <div className="mt-2"><span>{italicizeFirstWord(answer.answer_4)}</span></div>
+                                                                {/* Add more spans for additional answers */}
+                                                            </details>
+                                                        </div>
+                                                    );
+                                                }
+                                                return null;
+                                            })}
+                                        </>
+                                    ) : (
+                                        // Render a different structure for category.result greater than -1
+                                        // Your other logic or components can go here
+                                        <div></div>
+                                    )}
                                 </div>
                             ))}
                         </div>
                     ) : (
                         <p>No data available</p>
                     )}
+
                 </div>
                 <div className="flex flex-col items-center mt-8">
                     <div className="mt-6 mb-6">
@@ -136,9 +271,9 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                         <p>Een jobcoach zal je contacteren.</p>
                     </div>
                     <div>
-                        <form 
-                        onSubmit={handleSubmit}
-                        className="flex flex-col md:flex-row justify-center"
+                        <form
+                            onSubmit={handleSubmit}
+                            className="flex flex-col md:flex-row justify-center"
                         >
                             {/* Your form inputs for result and email */}
                             {/* <input type="text" value={result} onChange={(e) => setResult(e.target.value)} /> */}
@@ -161,7 +296,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                     </div>
                 </div>
             </div>
-            <div className='w-0 md:w-1/4 lg:w-1/2'></div>
+            <div className='w-0 md:w-1/4 lg:w-1/4'></div>
         </div>
     );
 };

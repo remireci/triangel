@@ -14,7 +14,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: 'Loopbaantest',
   description: 'Problemen op de job? Los het op!',
-  keywords: 'autisme, loopbaanvragen'
+  keywords: 'autisme, loopbaanvragen'  
 }
 
 export default function RootLayout({
@@ -25,7 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+        <link rel="icon" type="image/jpg" href="/triangel-logo-250px-1-150x150.jpg" sizes="16x16"></link>
+        <link rel="icon" type="image/jpg" href="/triangel-logo-250px-1-150x150.jpg" sizes="32x32"></link>
+        <link rel="icon" type="image/jpg" href="/triangel-logo-250px-1.jpg" sizes="192x192"></link>
+        <link rel="apple-touch-icon" type="image/jpg" href="/images/triangel-logo-250px-1.jpg"></link>
+        <meta name="msapplication-TileImage" content="/images/triangel-logo-250px-1.jpg"></meta>
       </head>
       <body className={roboto.className}>
         <div className="flex flex-col bg-[#ffffff] min-h-screen">        

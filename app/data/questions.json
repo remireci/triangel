@@ -62,17 +62,17 @@
     {
         "id": 13,
         "question": "Vind je dat je voldoende wordt betaald voor het werk dat je doet?",
-        "category": "worklife"
+        "category": "work-lifebalans"
     },
     {
         "id": 14,
         "question": "Is de afstand naar het werk voor jou OK?",
-        "category": "worklife"
+        "category": "work-lifebalans"
     },
     {
         "id": 15,
         "question": "Geeft je job je voldoende vrije tijd?",
-        "category": "worklife"
+        "category": "work-lifebalans"
     },
     {
         "id": 16,

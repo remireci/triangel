@@ -12,7 +12,7 @@ const Question = ({ question, category, id, onAnswer }) => {
     { category: "uitdaging", yes: 0, no: 0, irr: 0 },
     { category: "zingeving", yes: 0, no: 0, irr: 0 },
     { category: "waardering", yes: 0, no: 0, irr: 0 },
-    { category: "worklife", yes: 0, no: 0, irr: 0 },
+    { category: "work-lifebalans", yes: 0, no: 0, irr: 0 },
     { category: "competenties", yes: 0, no: 0, irr: 0 },
     { id: 1, answer: "" }, { id: 2, answer: "" }, { id: 3, answer: "" }, { id: 4, answer: "" }, { id: 5, answer: "" }, { id: 6, answer: "" },
     { id: 7, answer: "" }, { id: 8, answer: "" }, { id: 9, answer: "" }, { id: 10, answer: "" }, { id: 11, answer: "" }, { id: 12, answer: "" },

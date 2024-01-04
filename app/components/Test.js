@@ -8,7 +8,7 @@ const Test = () => {
     const router = useRouter();
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [isTestCompleted, setIsTestCompleted] = useState(false);
-    const [questionsData, setQuestionsData] = useState([]);
+    const [questionsData, setQuestionsData] = useState([]); 
     const [questionsFetched, setQuestionsFetched] = useState(false);
     const [numberOfquestions, setNumberOfQuestions] = useState(18);
 
@@ -21,8 +21,10 @@ const Test = () => {
             const data = await response.json();
             setQuestionsData(data);
         };
+
         fetchQuestions();
-        if (questionsData.length > 0) {
+
+        if (questionsData.length > 0) {            
             setQuestionsFetched(true);
         }
     }, []);
