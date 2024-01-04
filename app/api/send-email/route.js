@@ -5,7 +5,7 @@ import fs from "fs/promises";
 import path from "path";
 
 // Function to generate HTML content for the email
-function generateEmailContent(data, questions, answers) {
+function generateEmailContent(data, questions) {
   const styles = `
   /* Define styles for the categories */
   // .result-category {
@@ -184,7 +184,7 @@ function getCircleColor(result) {
 
 // Function to send emails
 async function sendEmail(data, questions, answers) {
-  const { htmlCoach, htmlClient } = generateEmailContent(data, questions, answers);
+  const { htmlCoach, htmlClient } = generateEmailContent(data, questions);
   const smtpOptions = {
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT),
