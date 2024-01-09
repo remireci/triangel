@@ -56,7 +56,7 @@ const Question = ({ question, category, id, onAnswer }) => {
       <div className='flex flex-col justify-between w-full md:w-1/2 lg:w-1/4 h-80 mb-0 md:-mb-10 px-4 py-4 bg-[#daebe8] rounded shadow'>
         <div
           className=''
-          style={{ height: '1px', backgroundColor: '#2f8bc9', width: blueLineWidth }}
+          style={{ height: '2px', backgroundColor: '#2f8bc9', width: blueLineWidth }}
         >
         </div>
 
