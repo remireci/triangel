@@ -8,7 +8,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     const router = useRouter();
     const [categoryData, setCategoryData] = useState([]);
     const [answersData, setAnswersData] = useState([]);
-    const [expanded, setExpanded] = useState(false);
     const [expandedCategories, setExpandedCategories] = useState([]);
     const [email, setEmail] = useState('');
 
@@ -18,27 +17,31 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         if (!storedCategoryData) {
             router.push("/test");
         } else {
-
+            let accumulatedResult = 0;
             const updatedCategoryData = storedCategoryData.map(item => {
                 let result;
                 if (item.category === "stress") {
-                    if (item.irr === 3) {
+                    if (item.irr === 3 || item.no === 3) {
                         result = 5;
                     } else {
                         result = item.no - item.yes;
                     }
                 } else {
-                    if (item.irr === 3) {
+                    if (item.irr === 3 || item.yes === 3) {
                         result = 5;
                     } else {
                         result = item.yes - item.no;
                     }
                 };
 
-                return { ...item, result };
+                accumulatedResult += result;
+
+                return { ...item, result, accumulatedResult };
             });
             setCategoryData(updatedCategoryData);
+            console.log(updatedCategoryData);
         }
+
     }, []);
 
     useEffect(() => {
@@ -140,7 +143,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         return expandedCategories[index] ? 'Toon minder' : 'Toon meer';
     };
 
-    
+
     const italicizeFirstWord = (text) => {
 
         const colonIndex = text.indexOf(':');
@@ -222,10 +225,41 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
             <div className="w-full md:w-1/2 lg:w-1/2 px-4 lg:px-0 py-4 h-1/2 bg-[#daebe8] rounded shadow-md">
                 <div className="flex flex-col items-center mt-auto">
                     <p className="text-2xl font-bold mb-12">Het resultaat van je test:</p>
+                    {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult === 30 ? (
+                        <div>
+                            <>
+                                {answersData.map((answer, index) => {
+                                    if (answer.id === 7) {
+                                        return (
+                                            <div key={index} className="result-category items-center my-2 px-16">
+                                                <div>
+                                                    <strong>Titel????</strong>
+                                                    {/* <strong>{category.category}</strong> */}
+                                                </div>
+                                                <span>{answer.answer_0}</span>
+                                                <details className="mt-2">
+                                                    <summary className="text-slate-400" onClick={() => toggleExpand()}>
+                                                        {toggleSummaryText()}
+                                                    </summary>
+                                                    <div><span>{italicizeFirstWord(answer.answer_1)}</span></div>
+                                                    <div className="mt-2"><span>{italicizeFirstWord(answer.answer_2)}</span></div>
+                                                    <div className="mt-2"><span>{italicizeFirstWord(answer.answer_3)}</span></div>
+                                                    <div className="mt-2"><span>{italicizeFirstWord(answer.answer_4)}</span></div>
+                                                    <div className="mt-2"><span>{italicizeFirstWord(answer.answer_5)}</span></div>
+                                                    {/* Add more spans for additional answers */}
+                                                </details>
+                                            </div>
+                                        );
+                                    }
+                                    return null;
+                                })}
+                            </>
+                        </div>
+                    ) : (<div></div>)}
                     {categoryData && categoryData.length > 0 ? (
                         <div>
                             {categoryData.slice(0, 6).map((category, index) => (
-                                <div key={index} className="result-category items-center my-2 px-16">
+                                <div key={index} className="result-category items-center my-6 px-16">
                                     {category.result <= -1 ? (
                                         <>
                                             {answersData.map((answer, ansIndex) => {
@@ -236,7 +270,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                                                 <strong>{category.category}</strong>
                                                             </div>
                                                             <span>{answer.answer_0}</span>
-                                                            <details>
+                                                            <details className="mt-2">
                                                                 <summary className="text-slate-400" onClick={() => toggleExpand(index)}>
                                                                     {toggleSummaryText(index)}
                                                                 </summary>
@@ -244,6 +278,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                                                 <div className="mt-2"><span>{italicizeFirstWord(answer.answer_2)}</span></div>
                                                                 <div className="mt-2"><span>{italicizeFirstWord(answer.answer_3)}</span></div>
                                                                 <div className="mt-2"><span>{italicizeFirstWord(answer.answer_4)}</span></div>
+                                                                <div className="mt-2"><span>{italicizeFirstWord(answer.answer_5)}</span></div>
                                                                 {/* Add more spans for additional answers */}
                                                             </details>
                                                         </div>
@@ -255,7 +290,8 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                     ) : (
                                         // Render a different structure for category.result greater than -1
                                         // Your other logic or components can go here
-                                        <div></div>
+                                        <div>
+                                        </div>
                                     )}
                                 </div>
                             ))}
