@@ -183,7 +183,7 @@ function getCircleColor(result) {
 }
 
 // Function to send emails
-async function sendEmail(data, questions, answers) {
+async function sendEmail(data, questions) {
   const { htmlCoach, htmlClient } = generateEmailContent(data, questions);
   const smtpOptions = {
     host: process.env.SMTP_HOST,
@@ -230,7 +230,6 @@ async function sendEmail(data, questions, answers) {
       transporter.sendMail(mailDataCoach),
       transporter.sendMail(mailDataClient),
     ]);
-    console.log("mail sent")
     return NextResponse.json({ message: "Email sent" }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);

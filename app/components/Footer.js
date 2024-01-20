@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="absolute bottom-0 h-50 w-full bg-[#2e2b36] py-3 text-slate-100 font-extralight shadow-md">
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
                 <div className="text-center">
-                    <h1 className="text-xs">© copyright {new Date().getFullYear()}: Triangel VZW - 0486 33 55 00 - <a
+                    <h1 className="text-xs">© {new Date().getFullYear()} <a href="https://www.triangelloopbaancentrum.be" target="_blank">Triangel Loopbaancentrum</a> - 03 500 03 10 - <a
                         href="mailto:info@triangelloopbaancentrum.be"
                         className='hover:text-gray-400'
                     >

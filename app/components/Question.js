@@ -51,7 +51,8 @@ const Question = ({ question, category, id, onAnswer }) => {
   const blueLineWidth = `${(answeredQuestions / 18) * 100}%`;
 
   return (
-    <div className="flex flex-row px-4 md:px-0 pt-28 md:pt-12 lg:pt-36 pb-24 bg-[#cfe0e8]">
+    // <div className='flex flex-row pb-36 lg:mt-48'></div>
+    <div className="flex flex-row px-4 md:px-0 pt-28 md:pt-12 lg:mt-48 lg:pt-36 pb-24 bg-[#cfe0e8]">
       <div className='w-0 md:w-1/4 lg:w-1/4'></div>
       <div className='flex flex-col justify-between w-full md:w-1/2 lg:w-1/4 h-80 mb-0 md:-mb-10 px-4 py-4 bg-[#daebe8] rounded shadow'>
         <div

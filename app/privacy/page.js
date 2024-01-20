@@ -27,7 +27,6 @@ const PrivacyPolicy = () => {
                         Contacteer ons met uw vragen over de verwerking van uw gegevens.
                     </p>
                     <br />
-
                 </section>
 
                 <section className="mb-8">
@@ -41,9 +40,10 @@ const PrivacyPolicy = () => {
                     <p>Triangel vzw verwerkt je persoonsgegevens in overeenstemming met Algemene Verordening Gegevensbescherming (AVG of GDPR) 2016/679 van
                         het Europees Parlement en de Raad van 27 april 2016 en andere toepasselijke Belgische wetgeving.</p>
                     <br />
-                    <p>Triangel vzw verzamelt en verwerkt uw persoonsgegevens wanneer je gebruikmaakt van de professionele diensten van Triangel vzw. Bij het
-                        invullen van een contactformulier op de website verstrek je je e-mailadres dat door Triangel vzw verwerkt wordt. Het wordt overgemaakt aan
-                        een job coach die jou op dit adres kan contacteren.
+                    <p>Triangel vzw verzamelt en verwerkt jouw persoonsgegevens wanneer je gebruikmaakt van de professionele diensten van Triangel vzw. 
+                        Bij deelname aan de test wordt je IP-adres versleuteld en anoniem opgeslagen in een database.
+                        Bij het invullen van een contactformulier op de website verstrek je je e-mailadres dat wordt gekoppeld aan het IP-adres
+                        en door Triangel vzw verwerkt wordt. Het emailadres wordt overgemaakt aan een job coach die jou via deze weg kan contacteren.
                     </p>
                     <br />
 

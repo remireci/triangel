@@ -220,10 +220,10 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     };
 
     return (
-        <div className="flex flex-row px-4 md:px-0 pb-28 pt-28 md:pt-36 lg:pt-36">
-            <div className='w-0 md:w-1/4 lg:w-1/4'></div>
-            <div className="w-full md:w-1/2 lg:w-1/2 px-4 lg:px-0 py-4 h-1/2 bg-[#daebe8] rounded shadow-md">
-                <div className="flex flex-col items-center mt-auto">
+        <div className="flex flex-row px-4 md:px-0 pb-28 sm:pt-14 md:pt-28 lg:pt-52">
+            <div className='w-0 md:w-28 lg:w-1/4'></div>
+            <div className="w-full lg:w-1/2 md:px-4 lg:px-0 md:py-4 h-1/2 bg-[#daebe8] rounded shadow-md">
+                <div className="flex flex-col items-center sm:pt-4 mt-auto">
                     <p className="text-2xl font-bold mb-12">Het resultaat van je test:</p>
                     {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult === 30 ? (
                         <div>
@@ -259,7 +259,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                     {categoryData && categoryData.length > 0 ? (
                         <div>
                             {categoryData.slice(0, 6).map((category, index) => (
-                                <div key={index} className="result-category items-center my-6 px-16">
+                                <div key={index} className="result-category items-center my-6 px-16 sm:px-8">
                                     {category.result <= -1 ? (
                                         <>
                                             {answersData.map((answer, ansIndex) => {
@@ -271,7 +271,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                                             </div>
                                                             <span>{answer.answer_0}</span>
                                                             <details className="mt-2">
-                                                                <summary className="text-slate-400" onClick={() => toggleExpand(index)}>
+                                                                <summary className="text-slate-400 cursor-pointer" onClick={() => toggleExpand(index)}>
                                                                     {toggleSummaryText(index)}
                                                                 </summary>
                                                                 <div><span>{italicizeFirstWord(answer.answer_1)}</span></div>
@@ -332,7 +332,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                     </div>
                 </div>
             </div>
-            <div className='w-0 md:w-1/4 lg:w-1/4'></div>
+            <div className='w-0 md:w-28 lg:w-1/4'></div>
         </div>
     );
 };

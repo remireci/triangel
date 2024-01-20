@@ -26,12 +26,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="nl">
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </head>
       <body className={roboto.className}>
-        <div className="flex flex-col bg-[#ffffff] min-h-screen">        
+        <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">        
           <Header />
           {children}
           <Footer />

@@ -97,14 +97,14 @@ const Test = () => {
     }
 
     return (
-        <div className="">
+        <>
             <Question
                 question={questionsData[currentQuestion].question}
                 category={questionsData[currentQuestion].category}
                 id={questionsData[currentQuestion].id}
                 onAnswer={handleAnswer}
             />
-        </div>
+        </>
     );
 };
 

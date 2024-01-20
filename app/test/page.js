@@ -1,4 +1,5 @@
 // test.js
+// IP stored in Vercel postgres database 
 import Test from '../components/Test';
 import Nosecondtest from '../components/Nosecondtest';
 import crypto from "crypto";
