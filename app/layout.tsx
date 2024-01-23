@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 import Header from './components/Header';
 import Footer from "./components/Footer";
+
 
 const roboto = Roboto({
   weight: ['100', '300', '400', '700'],
@@ -36,6 +39,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+        <ToastContainer />
       </body>
     </html>
   )

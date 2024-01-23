@@ -43,7 +43,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 return { ...item, result, accumulatedResult };
             });
             setCategoryData(updatedCategoryData);
-            console.log(updatedCategoryData);
         }
 
     }, []);
@@ -172,9 +171,15 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         // Regular expression for email validation
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/;
 
-        if (!emailRegex.test(email)) {
-            // Invalid email format
-            toast.error('Please provide a valid email address');
+        // Check if required fields are provided
+        if (!name || !firstName || !phone || !postalCode) {
+            toast.error('Vul alle verplichte velden in!');
+            return;
+        }
+
+        // Check if the provided email is valid
+        if (email && !emailRegex.test(email)) {
+            toast.error('Je e-mailadres is niet geldig!');
             return;
         }
 
@@ -188,8 +193,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
             });
 
             if (response.ok) {
-                console.log('Email sent successfully');
-                toast.error('Please provide a valid email address');
                 router.push("/confirmation");
             } else {
                 console.error('Error sending email');
@@ -209,8 +212,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 },
             });
 
-            if (response.ok) {
-                toast.success('Email added successfully');
+            if (response.ok) { 
                 router.push("/confirmation");
             } else {
                 console.error('Error adding email to the database');
@@ -312,7 +314,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                     </div>
                     <form
                         onSubmit={handleSubmit}
-                        className="flex flex-col sm:w-3/4 md:w-3/5 lg:1/2"
+                        className="flex flex-col sm:w-3/4 md:w-3/5 lg:w-1/2"
                     >
                         {/* Your form inputs for result and email */}
                         {/* <input type="text" value={result} onChange={(e) => setResult(e.target.value)} /> */}
