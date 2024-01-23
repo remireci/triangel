@@ -10,6 +10,10 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     const [answersData, setAnswersData] = useState([]);
     const [expandedCategories, setExpandedCategories] = useState([]);
     const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [postalCode, setPostalCode] = useState('');
 
     useEffect(() => {
         const storedCategoryData = JSON.parse(localStorage.getItem('categoryData'));
@@ -180,7 +184,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ categoryData, email }),
+                body: JSON.stringify({ categoryData, email, name, firstName, phone, postalCode }),
             });
 
             if (response.ok) {
@@ -206,7 +210,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
             });
 
             if (response.ok) {
-                console.log('Email added to the database');
                 toast.success('Email added successfully');
                 router.push("/confirmation");
             } else {
@@ -220,18 +223,18 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     };
 
     return (
-        <div className="flex flex-row px-4 md:px-0 pb-28 sm:pt-14 md:pt-28 lg:pt-52">
-            <div className='w-0 md:w-28 lg:w-1/4'></div>
-            <div className="w-full lg:w-1/2 md:px-4 lg:px-0 md:py-4 h-1/2 bg-[#daebe8] rounded shadow-md">
+        <div className="flex flex-row px-4 md:px-0 pb-28 sm:pt-14 md:pt-28 lg:pt-64 text-slate-600">
+            <div className='w-0 md:w-1/5 lg:w-1/5'></div>
+            <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-2/5 h-86 mx-4 -mb-10 mt-10 px-6 py-6 text-base bg-[#daebe8] rounded shadow'>
                 <div className="flex flex-col items-center sm:pt-4 mt-auto">
-                    <p className="text-2xl font-bold mb-12">Het resultaat van je test:</p>
+                    <p className="text-2xl font-bold mb-12">Het resultaat van je test</p>
                     {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult === 30 ? (
-                        <div>
+                        <div className="flex flex-col items-center px-2 lg:px-16">
                             <>
                                 {answersData.map((answer, index) => {
                                     if (answer.id === 7) {
                                         return (
-                                            <div key={index} className="result-category items-center my-2 px-16">
+                                            <div key={index} className="result-category">
                                                 <div>
                                                     <strong>Titel????</strong>
                                                     {/* <strong>{category.category}</strong> */}
@@ -257,16 +260,16 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                         </div>
                     ) : (<div></div>)}
                     {categoryData && categoryData.length > 0 ? (
-                        <div>
+                        <div className="flex flex-col items-center px-2 lg:px-16">
                             {categoryData.slice(0, 6).map((category, index) => (
-                                <div key={index} className="result-category items-center my-6 px-16 sm:px-8">
+                                <div key={index} className="result-category">
                                     {category.result <= -1 ? (
                                         <>
                                             {answersData.map((answer, ansIndex) => {
                                                 if (answer.category === category.category) {
                                                     return (
                                                         <div key={ansIndex}>
-                                                            <div>
+                                                            <div className="mt-6 ">
                                                                 <strong>{category.category}</strong>
                                                             </div>
                                                             <span>{answer.answer_0}</span>
@@ -289,7 +292,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                         </>
                                     ) : (
                                         // Render a different structure for category.result greater than -1
-                                        // Your other logic or components can go here
                                         <div>
                                         </div>
                                     )}
@@ -299,41 +301,81 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                     ) : (
                         <p>No data available</p>
                     )}
-
                 </div>
-                <div className="flex flex-col items-center mt-8">
-                    <div className="mt-6 mb-6">
-                        <p>Vul hieronder je mailadres in.</p>
-                        <p>Een jobcoach zal je contacteren.</p>
+                <div className="flex flex-col items-center w-full ">
+                    <div className="flex flex-col mt-8 md:px-8">
+                        <div className="mt-6 mb-12 sm:px-4 sm:mx-4 md:mx-0 px-16 py-2 border-2 border-[#2f8bc9] bg-slate-200 rounded-md">
+                            <p>Wil je na het lezen van dit persoonlijk advies meer informatie over loopbaanbegeleiding,
+                                vul dan je gegevens in en we nemen contact met je op voor een gratis en vrijblijvend
+                                kennismakingsgesprek met een loopbaancoach bij jou in de buurt.</p>
+                        </div>
                     </div>
-                    <div>
-                        <form
-                            onSubmit={handleSubmit}
-                            className="flex flex-col md:flex-row justify-center"
-                        >
-                            {/* Your form inputs for result and email */}
-                            {/* <input type="text" value={result} onChange={(e) => setResult(e.target.value)} /> */}
+                    <form
+                        onSubmit={handleSubmit}
+                        className="flex flex-col sm:w-3/4 md:w-3/5 lg:1/2"
+                    >
+                        {/* Your form inputs for result and email */}
+                        {/* <input type="text" value={result} onChange={(e) => setResult(e.target.value)} /> */}
+
+                        <div className="flex flex-row">
                             <input
-                                type="email"
-                                placeholder="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className="px-2 rounded"
+                                type="firstName"
+                                placeholder="Voornaam *"
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                className="h-8 bg-slate-100 px-2 rounded my-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
+                                required
                             />
+                        </div>
 
-                            <button
-                                className="bg-[#87bdd8] text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded text-sm px-2 py-1 text-center me-2 mb-2 ml-4 mt-4 md:mt-0"
-                                data-te-ripple-init
-                                type="submit"
-                            >
-                                Send Email
-                            </button>
-                        </form>
-                    </div>
+
+                        <input
+                            type="Name"
+                            placeholder="Familienaam *"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="h-8 bg-slate-100 px-2 rounded my-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
+                            required
+                        />
+                        <input
+                            type="Phone"
+                            placeholder="Telefoonnummer *"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            className="h-8 bg-slate-100 px-2 rounded my-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
+                            required
+                        />
+                        <input
+                            type="Postal Code"
+                            placeholder="Postcode *"
+                            value={postalCode}
+                            onChange={(e) => setPostalCode(e.target.value)}
+                            className="h-8 bg-slate-100 px-2 rounded my-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
+                            required
+                        />
+                        <input
+                            type="email"
+                            placeholder="e-mail"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="h-8 bg-slate-100 px-2 rounded mt-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
+                        />
+                        <p className='text-sm text-slate-400 italic mx-5 text-left -ml-0'>* Verplichte velden</p>
+
+                        <button
+                            className="bg-[#87bdd8] w-20 text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded text-sm px-2 py-1 text-center me-2 mb-2 ml-4 my-8"
+                            data-te-ripple-init
+                            type="submit"
+                        >
+                            Verzend
+                        </button>
+
+                    </form>
                 </div>
+
             </div>
-            <div className='w-0 md:w-28 lg:w-1/4'></div>
-        </div>
+            <div className='w-0 md:w-1/5 lg:w-2/5'></div>
+        </div >
     );
 };
 

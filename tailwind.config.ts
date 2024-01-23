@@ -15,13 +15,13 @@ const config: Config = {
       },
     },
     screens: {
-      'sm': {'min': '300px', 'max': '767px'},
-      'md': '650px',
-      'lg': '1200px'
+      'sm': '300px',
+      'md': '665px',
+      'lg': '1500px',
     }
   },
-  
+
   plugins: [],
-  
+
 }
 export default config

@@ -14,7 +14,7 @@ const ConfirmationPage = () => {
       <div className='flex flex-col bg-slate-300 px-4 py-4 mx-2 justify-center items-center'>
         <h1 className="text-2xl font-bold mb-6">Bevestiging</h1>
         <p className="text-center mb-1">
-          Je e-mailadres is naar Triangel Loopbaancentrum verstuurd.
+          Je gegevens zijn naar Triangel Loopbaancentrum verstuurd.
         </p>
         <p className="text-center mb-4">
           Een job coach zal je zo snel mogelijk contacteren.

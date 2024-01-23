@@ -8,7 +8,7 @@ const Test = () => {
     const router = useRouter();
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [isTestCompleted, setIsTestCompleted] = useState(false);
-    const [questionsData, setQuestionsData] = useState([]); 
+    const [questionsData, setQuestionsData] = useState([]);
     const [questionsFetched, setQuestionsFetched] = useState(false);
     const [numberOfquestions, setNumberOfQuestions] = useState(18);
 
@@ -24,7 +24,7 @@ const Test = () => {
 
         fetchQuestions();
 
-        if (questionsData.length > 0) {            
+        if (questionsData.length > 0) {
             setQuestionsFetched(true);
         }
     }, []);
@@ -79,10 +79,10 @@ const Test = () => {
 
     if (isTestCompleted) {
         return (
-            <div className="flex flex-row px-4 md:px-0 pt-28 md:pt-36 lg:pt-36 pb-24">
-                <div className='w-0 md:w-1/4 lg:w-1/4'></div>
-                <div className="flex flex-col justify-between h-60 w-full md:w-1/2 lg:w-1/5 py-8 mt-10 text-center bg-[#daebe8] rounded shadow-md">
-                    <div>
+            <div className='flex flex-row pb-36 lg:mt-48 text-slate-600'>
+                <div className='w-0 md:w-1/4 lg:w-1/5'></div>
+                <div className="flex flex-col justify-between h-60 w-full mx-5 md:mx-0 md:w-1/2 lg:w-1/5 py-8 mt-10 text-center bg-[#daebe8] rounded shadow-md">
+                    <div className="flex flex-col items-center sm:pt-4 mt-auto">
                         <p className="text-xl">Test afgerond!</p>
                     </div>
                     <div className="flex flex-col items-center justify-end mt-auto mt-12">
@@ -91,7 +91,7 @@ const Test = () => {
                         </button>
                     </div>
                 </div>
-                <div className='w-0 md:w-1/4 lg:w-1/2'></div>
+                <div className='w-0 md:w-1/4 lg:w-2/5'></div>
             </div>
         );
     }
