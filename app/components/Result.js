@@ -213,7 +213,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 },
             });
 
-            if (response.ok) { 
+            if (response.ok) {
                 router.push("/confirmation");
             } else {
                 console.error('Error adding email to the database');
@@ -225,11 +225,18 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         }
     };
 
+    const handlePrint = () => {
+        window.print();
+    };
+
     return (
         <div className="flex flex-row px-4 sm:px-0 md:px-0 pb-28 sm:pt-14 md:pt-28 lg:pt-64 text-slate-600">
             <div className='w-0 md:w-1/5 lg:w-1/5'></div>
             <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-2/5 h-86 mx-4 -mb-10 mt-10 px-6 sm:px-2 py-6 text-base sm:text-sm bg-[#daebe8] rounded shadow'>
-                <div className="flex flex-col items-center sm:pt-4 mt-auto">
+                <div
+                    id="print-content"
+                    className="flex flex-col items-center sm:pt-4 mt-auto"
+                >
                     <p className="text-2xl font-bold mb-12">Het resultaat van je test</p>
                     {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult === 30 ? (
                         <div className="flex flex-col items-center px-2 lg:px-16">
@@ -304,6 +311,15 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                     ) : (
                         <p>No data available</p>
                     )}
+
+                </div>
+                <div className='flex justify-end mr-8 mt-10'>
+                    <button
+                        onClick={handlePrint}
+                        className="bg-[#87bdd8] hover:bg-blue-800 text-sm text-white px-4 py-2 rounded cursor-pointer"
+                    >
+                        Print resultaat
+                    </button>
                 </div>
                 <div className="flex flex-col items-center w-full ">
                     <div className="flex flex-col mt-8 md:px-8">
@@ -356,7 +372,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                             className="h-8 bg-slate-100 px-2 rounded my-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
                             required
                         />
-                                                <input
+                        <input
                             type="City"
                             placeholder="Gemeente *"
                             value={city}

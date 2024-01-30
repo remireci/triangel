@@ -16,6 +16,29 @@
   }
 }
 
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body {
+    margin: 0;
+  }
+  body * {
+      visibility: hidden;
+  }
+  #print-content, #print-content * {
+      visibility: visible;
+  }
+  #print-content {
+      position: absolute;
+      left: 15mm;
+      top: 10mm;
+      width: 210mm;
+      height: 297mm;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background-color: #1c7eb4; /* Set the background color to #b7d7e8 */   
