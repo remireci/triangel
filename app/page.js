@@ -8,11 +8,7 @@ const Home = async () => {
   return (
     <>
       <Welcome />
-      {/* <Link href="/test">
-
-        </Link> */}
     </>
-
   );
 };
 

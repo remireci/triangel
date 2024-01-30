@@ -36,14 +36,18 @@ const Header = () => {
       <div className="flex flex-col md:flex-row sm:mt-20 md:mt-16 h-full items-center justify-center">
         <div className="flex flex-col md:flex-row h-full md:items-start justify-between w-full lg:w-3/4 md:pt-4">
           <div className="md:h-15 items-center ml-2 md:ml-10 lg:ml-0 md:mb-7">
-            <Image
-              src="/images/triangel-logo-250px.jpg"
-              className='h-24'
-              alt="icon"
-              width={150}
-              height={200}
-
-            />
+            <a 
+            href="https://www.triangelloopbaancentrum.be"
+            target="_blank"
+            >
+              <Image
+                src="/images/triangel-logo-250px.jpg"
+                className='h-24'
+                alt="icon"
+                width={150}
+                height={200}
+              />
+            </a>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-center md:pt-6 sm:-mt-12 md:mt-8 mb-8 z-10">
             {/* <div className="w-0 lg:w-1/4"></div> */}

@@ -1,11 +1,12 @@
 // components/Question.js
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import routeHandler from './questions/route';
 
-const Question = ({ question, category, id, onAnswer }) => {
-  const [answeredQuestions, setAnsweredQuestions] = useState(0);
+const Question = ({ question, category, id, onAnswer, onBack, setLocalData, stepsBack, setAnsweredQuestions, answeredQuestions }) => {
+  // const [answeredQuestions, setAnsweredQuestions] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   let data = JSON.parse(localStorage.getItem('categoryData')) || [
     { category: "stress", yes: 0, no: 0, irr: 0 },
@@ -19,8 +20,16 @@ const Question = ({ question, category, id, onAnswer }) => {
     { id: 13, answer: "" }, { id: 14, answer: "" }, { id: 15, answer: "" }, { id: 16, answer: "" }, { id: 17, answer: "" }, { id: 18, answer: "" },
   ];
 
+  useEffect(() => {
+    // Update the selected answer when the component mounts
+    const indexQuestion = data.findIndex(item => item.id === id);
+    if (indexQuestion !== -1) {
+      setSelectedAnswer(data[indexQuestion].answer);
+    }
+  }, []);
+
   const updateScore = (valueToUpdate) => {
-    setAnsweredQuestions(answeredQuestions + 1);
+    // setAnsweredQuestions(answeredQuestions + 1);
 
     const index = data.findIndex(item => item.category === category);
     const indexQuestion = data.findIndex(item => item.id === id);
@@ -43,12 +52,15 @@ const Question = ({ question, category, id, onAnswer }) => {
       console.log(`Category '${category}' not found.`);
     }
 
+    setLocalData(data);
     localStorage.setItem('categoryData', JSON.stringify(data));
 
     onAnswer();
-
   }
-  const blueLineWidth = `${(answeredQuestions / 18) * 100}%`;
+
+  console.log("stepsback from questions", stepsBack);
+
+  const blueLineWidth = `${((answeredQuestions.length - stepsBack) / 18) * 100}%`;
 
   return (
     // <div className='flex flex-row pb-36 lg:mt-48'></div>
@@ -76,6 +88,20 @@ const Question = ({ question, category, id, onAnswer }) => {
             Niet van toepassing
           </button>
         </div>
+        <div className='group w-1/4'>
+          <div className='flex justify-start ml-4'>
+            {(answeredQuestions.length - stepsBack) > 0 && (
+              <button
+                onClick={onBack}
+                className="text-sm text-gray-600 relative">
+                <span className='text-2xl pb-2 mr-2'>&#8637;</span>
+                <span className='text-xs text-slate-400 opacity-0 absolute top-0 left-4 w- p-2 transition-opacity duration-300 group-hover:opacity-100'>
+                  Vorige vraag
+                </span>
+              </button>
+            )}
+          </div>
+        </div>
         {/* </div> */}
       </div>
       <div className='w-0 md:w-1/4 lg:w-1/2'></div>
@@ -88,6 +114,7 @@ Question.propTypes = {
   category: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   onAnswer: PropTypes.func.isRequired,
+  onBack: PropTypes.func.isRequired,
 };
 
 export default Question;

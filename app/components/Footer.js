@@ -6,16 +6,25 @@ const Footer = () => {
         <footer className="absolute bottom-0 h-50 w-full bg-[#2e2b36] py-3 text-slate-100 font-extralight shadow-md">
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
                 <div className="text-center">
-                    <h1 className="text-xs">© {new Date().getFullYear()}
-                        <a href="https://www.triangelloopbaancentrum.be" target="_blank">Triangel Loopbaancentrum</a>
+                    <p className="text-xs">© {new Date().getFullYear()}
+                        <a
+                            href="https://www.triangelloopbaancentrum.be"
+                            target="_blank"
+                            className='ml-2'
+                        >
+                            Triangel Loopbaancentrum
+                        </a>
+                        <span className='ml-1'>
                         - 03 500 03 10 -
+                        </span>
+                        
                         <a
                             href="mailto:info@triangelloopbaancentrum.be"
-                            className='hover:text-gray-400'
+                            className='ml-1 hover:text-gray-400'
                         >
                             info@triangelloopbaancentrum.be
                         </a>
-                    </h1>
+                    </p>
                 </div>
                 <div className="mt-2 md:mt-0 flex items-center space-x-12 md:space-x-12">
 

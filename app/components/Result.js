@@ -14,6 +14,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     const [firstName, setFirstName] = useState('');
     const [phone, setPhone] = useState('');
     const [postalCode, setPostalCode] = useState('');
+    const [city, setCity] = useState('');
 
     useEffect(() => {
         const storedCategoryData = JSON.parse(localStorage.getItem('categoryData'));
@@ -225,9 +226,9 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     };
 
     return (
-        <div className="flex flex-row px-4 md:px-0 pb-28 sm:pt-14 md:pt-28 lg:pt-64 text-slate-600">
+        <div className="flex flex-row px-4 sm:px-0 md:px-0 pb-28 sm:pt-14 md:pt-28 lg:pt-64 text-slate-600">
             <div className='w-0 md:w-1/5 lg:w-1/5'></div>
-            <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-2/5 h-86 mx-4 -mb-10 mt-10 px-6 py-6 text-base bg-[#daebe8] rounded shadow'>
+            <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-2/5 h-86 mx-4 -mb-10 mt-10 px-6 sm:px-2 py-6 text-base sm:text-sm bg-[#daebe8] rounded shadow'>
                 <div className="flex flex-col items-center sm:pt-4 mt-auto">
                     <p className="text-2xl font-bold mb-12">Het resultaat van je test</p>
                     {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult === 30 ? (
@@ -352,6 +353,14 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                             placeholder="Postcode *"
                             value={postalCode}
                             onChange={(e) => setPostalCode(e.target.value)}
+                            className="h-8 bg-slate-100 px-2 rounded my-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
+                            required
+                        />
+                                                <input
+                            type="City"
+                            placeholder="Gemeente *"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
                             className="h-8 bg-slate-100 px-2 rounded my-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
                             required
                         />
