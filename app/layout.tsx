@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 import Header from './components/Header';
 import Footer from "./components/Footer";
+import { Analytics } from '@vercel/analytics/react'
 
 
 const roboto = Roboto({
@@ -37,6 +38,7 @@ export default function RootLayout({
         <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">        
           <Header />
           {children}
+          <Analytics />
           <Footer />
         </div>
         <ToastContainer />
