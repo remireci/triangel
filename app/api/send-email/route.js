@@ -131,41 +131,41 @@ function generateEmailContent(data, questions) {
     </html>
   );
 
-  const htmlClient = render(
-    <html>
-      <head>
-        <style>{styles}</style>
-      </head>
-      <body>
-      </body>
-      <body>
-        <div className="section">
-          <h2>Resultaat Loopbaantest Triangel</h2>
-        </div>
-        <div className="section">
-          <p>
-            Beste,</p>
-          <p>De resultaten hieronder geven aan of loopbaanbegeleiding je situatie kan helpen verbeteren.</p>
-          <p>Je hebt je mailadres doorgegeven aan Triangel Loopbaanbegeleiding. Je zal snel worden gecontacteerd
-            door een jobcoach.
-          </p>
-          <p>
-            Wil je zelf contact opnemen? Dat kan op het volgende mailadres:
-          </p>
-          <p><a href="mailto:info@triangelloopbaancentrum.be">info@triangelloopbaancentrum.be</a></p>
-        </div>
+  // const htmlClient = render(
+  //   <html>
+  //     <head>
+  //       <style>{styles}</style>
+  //     </head>
+  //     <body>
+  //     </body>
+  //     <body>
+  //       <div className="section">
+  //         <h2>Resultaat Loopbaantest Triangel</h2>
+  //       </div>
+  //       <div className="section">
+  //         <p>
+  //           Beste,</p>
+  //         <p>De resultaten hieronder geven aan of loopbaanbegeleiding je situatie kan helpen verbeteren.</p>
+  //         <p>Je hebt je mailadres doorgegeven aan Triangel Loopbaanbegeleiding. Je zal snel worden gecontacteerd
+  //           door een jobcoach.
+  //         </p>
+  //         <p>
+  //           Wil je zelf contact opnemen? Dat kan op het volgende mailadres:
+  //         </p>
+  //         <p><a href="mailto:info@triangelloopbaancentrum.be">info@triangelloopbaancentrum.be</a></p>
+  //       </div>
 
-        {data.categoryData.slice(0, 6).map((category, index) => (
-          <div key={index} className="result-category">
-            <span className={`circle ${getCircleColor(category.result)}`}></span>
-            <span>{category.category}: {category.result}</span>
-          </div>
-        ))}
-      </body>
-    </html>
-  );
+  //       {data.categoryData.slice(0, 6).map((category, index) => (
+  //         <div key={index} className="result-category">
+  //           <span className={`circle ${getCircleColor(category.result)}`}></span>
+  //           <span>{category.category}: {category.result}</span>
+  //         </div>
+  //       ))}
+  //     </body>
+  //   </html>
+  // );
 
-  return { htmlCoach, htmlClient };
+  return { htmlCoach };
 }
 
 // Function to determine the color class based on the result value
@@ -179,14 +179,14 @@ function getCircleColor(result) {
   } else if (result >= 0 && result <= 3) {
     return 'green';
   } else if (result === 5) {
-    return 'black';
+    return 'blue';
   }
   return ''; // Default color or handle other cases
 }
 
 // Function to send emails
 async function sendEmail(data, questions) {
-  const { htmlCoach, htmlClient } = generateEmailContent(data, questions);
+  const { htmlCoach } = generateEmailContent(data, questions);
   const smtpOptions = {
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT),
@@ -216,21 +216,21 @@ async function sendEmail(data, questions) {
       html: htmlCoach,
     };
 
-    const mailDataClient = {
-      from: {
-        name: `Triangel Loopbaantest`,
-        address: "info@loopbaantest-vlaanderen.be",
-      },
-      replyTo: "",
-      to: [data.email], // Use the client's email from the received data
-      subject: "Loopbaantest: Resultaat",
-      html: htmlClient,
-    };
+    // const mailDataClient = {
+    //   from: {
+    //     name: `Triangel Loopbaantest`,
+    //     address: "info@loopbaantest-vlaanderen.be",
+    //   },
+    //   replyTo: "",
+    //   to: [data.email], // Use the client's email from the received data
+    //   subject: "Loopbaantest: Resultaat",
+    //   html: htmlClient,
+    // };
 
     // Send mail
     await Promise.all([
       transporter.sendMail(mailDataCoach),
-      transporter.sendMail(mailDataClient),
+      // transporter.sendMail(mailDataClient),
     ]);
     return NextResponse.json({ message: "Email sent" }, { status: 200 });
   } catch (error) {

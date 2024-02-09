@@ -33,7 +33,7 @@ async function removeIpAddress(ipAddress) {
 
         if (existingIp.rows.length === 0) {
             console.log("length = 0")
-            return NextResponse.json({ message: 'IP address does not exist' }, { status: 404 });
+           return NextResponse. json({ message: 'IP address does not exist' }, { status: 404 });
         } else {
             for (const ipEntry of existingIp.rows) {
                 console.log("this is entry", ipEntry);

@@ -6,13 +6,13 @@ import Image from 'next/image';
 // components/Header.js
 const Header = () => {
   const path = usePathname();
-  let header_text = "doe de loopbaantest";
+  let header_text = "Laat je inspireren, doe de loopbaantest";
   if (path !== "/") {
     header_text = "jouw loopbaantest"
   }
 
   return (
-    <header className="lg:fixed lg:top-0 w-full text-3xl sm:h-52 md:h-48 font-light tracking-widest text-slate-600 text-center bg-[#ffffff]">
+    <header className="lg:fixed lg:top-0 w-full sm:h-52 md:h-48 font-light tracking-widest text-slate-600 text-center bg-[#ffffff]">
       <div className="sm:fixed sm:top-0 md:fixed md:top-0 flex flex-row items-center justify-between h-16 w-full bg-[#2f8bc9] z-50">
         <div className="flex flex-row md:justify-start lg:justify-end items-end sm:w-1/3 ml-2 md:ml-12 md:w-1/5 h-1/2">
           <Image
@@ -24,7 +24,7 @@ const Header = () => {
           />
           <p className="text-lg sm:text-sm text-white font-bold tracking-normal lg:mr-20">03 500 03 10</p>
         </div>
-        <div className="flex flex-row justify-start md:justify-center items-end md:w-1/5 lg:w-1/4 h-1/2">
+        <div className="flex flex-row justify-start md:justify-center items-end md-custom:w-1/4 lg:w-1/4 h-1/2">
           <Link
             href="https://www.triangelloopbaancentrum.be/loopbaanbegeleiding/vraag-je-gratis-kennismakingsgesprek/"
             target="_blank"
@@ -34,8 +34,8 @@ const Header = () => {
         </div>
       </div>
       <div className="flex flex-col md:flex-row sm:mt-20 md:mt-16 h-full items-center justify-center">
-        <div className="flex flex-col md:flex-row h-full md:items-start justify-between w-full lg:w-3/4 md:pt-4">
-          <div className="md:h-15 items-center ml-2 md:ml-10 lg:ml-0 md:mb-7">
+        <div className="flex flex-row h-full md:items-start justify-between w-full lg:w-3/4 md:pt-4">
+          <div className="w-1/3 md:w-1/5 md:h-15 items-center ml-2 md:ml-10 lg:ml-0 md:mb-7">
             <a 
             href="https://www.triangelloopbaancentrum.be"
             target="_blank"
@@ -49,14 +49,12 @@ const Header = () => {
               />
             </a>
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-center md:pt-6 sm:-mt-12 md:mt-8 mb-8 z-10">
-            {/* <div className="w-0 lg:w-1/4"></div> */}
-            <div className="w-full">
+          <div className="flex flex-col md:flex-row w-2/3 md:w-3/5 items-center justify-center sm:-mt-12 md:mt-8 md:-ml-4 mb-8 md:pt-6 ">            
+            <div className="w-full md:w-2/3 lg-custom:w-full text-lg md:text-xl lg-custom:text-2xl font-semibold lg:font-normal lg:text-3xl md:-ml-5 lg:ml-0 px-5 md:px-0 md:mr-0 mt-6 md:-mt-4">
               <a href="/">{header_text}</a>
-            </div>
-            {/* <div className="w-0 lg:w-1/4"></div> */}
+            </div>            
           </div>
-          <div className=""></div>
+          <div className="w-0 md:w-1/5"></div>
         </div>
       </div>
     </header>

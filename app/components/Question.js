@@ -64,9 +64,9 @@ const Question = ({ question, category, id, onAnswer, onBack, setLocalData, step
 
   return (
     // <div className='flex flex-row pb-36 lg:mt-48'></div>
-    <div className="flex flex-row px-4 md:px-0 pt-28 md:pt-12 lg:mt-48 lg:pt-36 pb-24 bg-[#cfe0e8]">
-      <div className='w-0 md:w-1/4 lg:w-1/4'></div>
-      <div className='flex flex-col justify-between w-full md:w-1/2 lg:w-1/4 h-80 mb-0 md:-mb-10 px-4 py-4 bg-[#daebe8] rounded shadow'>
+    <div className="flex flex-row mt-6 md:mt-8 lg:mt-48 px-4 md:px-0 lg:pt-12 pb-24 bg-[#cfe0e8]">
+      <div className='w-0 md:w-1/5 lg:w-1/4'></div>
+      <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-1/2 h-55 mb-0 md:-mb-10 p-4 bg-[#daebe8] rounded shadow'>
         <div
           className=''
           style={{ height: '2px', backgroundColor: '#2f8bc9', width: blueLineWidth }}
@@ -74,37 +74,37 @@ const Question = ({ question, category, id, onAnswer, onBack, setLocalData, step
         </div>
 
         {/* <div className=''> */}
-        <div className='text-center mt-8 px-4'>
+        <div className='text-center mt-8 mb-6 px-4'>
           <p className="text-xl mb-4">{question}</p>
         </div>
         <div className='flex flex-row justify-center mb-8'>
-          <button onClick={() => updateScore("yes")} className="bg-[#87bdd8] hover:bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2">
+          <button onClick={() => updateScore("yes")} className="bg-[#87bdd8] hover:bg-blue-800 focus:bg-[#87bdd8] focus-visible:bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2">
             Ja
           </button>
-          <button onClick={() => updateScore("no")} className="bg-[#87bdd8] hover:bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2">
+          <button onClick={() => updateScore("no")} className="bg-[#87bdd8] hover:bg-blue-800 focus:bg-[#87bdd8] focus-visible:bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2">
             Nee
           </button>
-          <button onClick={() => updateScore("irr")} className="bg-[#87bdd8] hover:bg-blue-800 text-sm text-white px-4 py-2 rounded">
+          <button onClick={() => updateScore("irr")} className="bg-[#87bdd8] hover:bg-blue-800 focus:bg-[#87bdd8] focus-visible:bg-blue-800 text-sm text-white px-4 py-2 rounded">
             Niet van toepassing
           </button>
         </div>
         <div className='group w-1/4'>
-          <div className='flex justify-start ml-4'>
+          <div className='flex justify-start'>
             {(answeredQuestions.length - stepsBack) > 0 && (
               <button
                 onClick={onBack}
                 className="text-sm text-gray-600 relative">
-                <span className='text-2xl pb-2 mr-2'>&#8637;</span>
-                <span className='text-xs text-slate-400 opacity-0 absolute top-0 left-4 w- p-2 transition-opacity duration-300 group-hover:opacity-100'>
+                <span className='text-xs text-slate-400 pb-2 mr-2'>vorige</span>
+                {/* <span className='text-xs text-slate-400 opacity-0 absolute top-0 left-4 w- p-2 transition-opacity duration-300 group-hover:opacity-100'>
                   Vorige vraag
-                </span>
+                </span> */}
               </button>
             )}
           </div>
         </div>
         {/* </div> */}
       </div>
-      <div className='w-0 md:w-1/4 lg:w-1/2'></div>
+      <div className='w-0 md:w-1/5 lg:w-1/4 '></div>
     </div>
   );
 };

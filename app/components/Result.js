@@ -2,6 +2,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
 import { toast } from 'react-toastify';
 
 const Result = ({ encryptedAddress }) => {    // Add logic to calculate and display the result based on user's answers
@@ -70,70 +71,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         }
     }, [categoryData]);
 
-
-    const getCircleColor = (result) => {
-
-        if (result === -3) {
-            return 'red';
-        } else if (result === -2) {
-            return 'orange';
-        } else if (result === -1) {
-            return 'yellow';
-        } else if (result >= 0 && result <= 3) {
-            return 'green';
-        } else if (result === 5) {
-            return 'black';
-        }
-        return ''; // Default color or handle other cases
-    };
-
-    // const getAnswer = (result, category) => {
-    //     if (answersData.length === 0) {
-    //         return 'Answers loading...';
-    //     }
-
-    //     if (result <= -1) {
-    //         const answer = answersData.find((item) => item.category === category);
-
-    //         const italicizeFirstWord = (text) => {
-    //             const colonIndex = text.indexOf(':');
-    //             if (colonIndex !== -1) {
-    //                 const firstPart = text.substring(0, colonIndex);
-    //                 const restPart = text.substring(colonIndex);
-    //                 return (
-    //                     <>
-    //                         <span><i>{firstPart}</i></span>
-    //                         {restPart}
-    //                     </>
-    //                 );
-    //             }
-    //             return text;
-    //         };
-
-
-    // return (
-    //     <>
-    //         <div>
-    //             <strong>{category}</strong>
-    //         </div>
-    //         <div>
-    //             <span>{answer.answer_0}</span>
-    //         </div>
-    //         <details>
-    //             <summary className="text-slate-400" onClick={toggleExpand}>
-    //                 {toggleSummaryText()}
-    //             </summary>
-    //             <div><span>{italicizeFirstWord(answer.answer_1)}</span></div>
-    //             <div className="mt-2"><span>{italicizeFirstWord(answer.answer_2)}</span></div>
-    //             <div className="mt-2"><span>{italicizeFirstWord(answer.answer_3)}</span></div>
-    //             <div className="mt-2"><span>{italicizeFirstWord(answer.answer_4)}</span></div>
-    //             {/* Add more spans for additional answers */}
-    //         </details>
-    //     </>
-    // );
-    // }
-    // Return 'result' or handle other cases here
-    // };
 
     // Function to toggle the expanded state for a specific category at a given index
     const toggleExpand = (index) => {
@@ -230,16 +167,13 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     };
 
     return (
-        <div className="flex flex-row px-4 sm:px-0 md:px-0 pb-28 sm:pt-14 md:pt-28 lg:pt-64 text-slate-600">
-            <div className='w-0 md:w-1/5 lg:w-1/5'></div>
-            <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-2/5 h-86 mx-4 -mb-10 mt-10 px-6 sm:px-2 py-6 text-base sm:text-sm bg-[#daebe8] rounded shadow'>
-                <div
-                    id="print-content"
-                    className="flex flex-col items-center sm:pt-4 mt-auto"
-                >
-                    <p className="text-2xl font-bold mb-12">Het resultaat van je test</p>
+        <div className="flex flex-col lg-custom:flex-row items-center lg-custom:items-stretch px-2 md:px-0 pb-28 lg:pt-48 text-slate-600">
+            <div className='w-0 md:1/4 lg:w-1/6'></div>
+            <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-1/3 h-86 mx-4 mt-4 lg-custom:mt-10 lg-custom:-mb-10 px-1 md:px-2 lg-custom:px-6 py-6 text-base sm:text-sm bg-[#daebe8] rounded shadow'>
+                <div className="flex flex-col items-center justify-center sm:pt-4">
+                    <p className="text-2xl font-bold mb-12">het resultaat</p>
                     {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult === 30 ? (
-                        <div className="flex flex-col items-center px-2 lg:px-16">
+                        <div className="flex flex-col items-center px-2 md-custom:px-12 lg:px-12">
                             <>
                                 {answersData.map((answer, index) => {
                                     if (answer.id === 7) {
@@ -247,7 +181,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                             <div key={index} className="result-category">
                                                 <div>
                                                     <strong>Titel????</strong>
-                                                    {/* <strong>{category.category}</strong> */}
                                                 </div>
                                                 <span>{answer.answer_0}</span>
                                                 <details className="mt-2">
@@ -259,7 +192,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                                     <div className="mt-2"><span>{italicizeFirstWord(answer.answer_3)}</span></div>
                                                     <div className="mt-2"><span>{italicizeFirstWord(answer.answer_4)}</span></div>
                                                     <div className="mt-2"><span>{italicizeFirstWord(answer.answer_5)}</span></div>
-                                                    {/* Add more spans for additional answers */}
                                                 </details>
                                             </div>
                                         );
@@ -270,7 +202,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                         </div>
                     ) : (<div></div>)}
                     {categoryData && categoryData.length > 0 ? (
-                        <div className="flex flex-col items-center px-2 lg:px-16">
+                        <div className="flex flex-col items-center px-2 md-custom:px-12 lg:px-12">
                             {categoryData.slice(0, 6).map((category, index) => (
                                 <div key={index} className="result-category">
                                     {category.result <= -1 ? (
@@ -301,7 +233,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                             })}
                                         </>
                                     ) : (
-                                        // Render a different structure for category.result greater than -1
                                         <div>
                                         </div>
                                     )}
@@ -313,17 +244,19 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                     )}
 
                 </div>
-                <div className='flex justify-end mr-8 mt-10'>
+                <div className='flex justify-start mr-8 mt-10'>
                     <button
                         onClick={handlePrint}
-                        className="bg-[#87bdd8] hover:bg-blue-800 text-sm text-white px-4 py-2 rounded cursor-pointer"
+                        className="bg-[#87bdd8] w-max text-slate-200 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded text-sm px-2 py-1 text-center ml-4"
                     >
-                        Print resultaat
+                        print
                     </button>
                 </div>
+            </div>
+            <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-1/3 h-86 mx-4 mt-4 lg-custom:mt-10 lg-custom:-mb-10 px-1 md:px-2 lg-custom:px-6 py-6 text-base sm:text-sm bg-[#daebe8] rounded shadow'>
                 <div className="flex flex-col items-center w-full ">
                     <div className="flex flex-col mt-8 md:px-8">
-                        <div className="mt-6 mb-12 sm:px-4 sm:mx-4 md:mx-0 px-16 py-2 border-2 border-[#2f8bc9] bg-slate-200 rounded-md">
+                        <div className="mb-12 sm:px-4 sm:mx-4 md:mx-0 px-16 py-2 border-2 border-[#2f8bc9] bg-slate-200 rounded-md">
                             <p>Wil je na het lezen van dit persoonlijk advies meer informatie over loopbaanbegeleiding,
                                 vul dan je gegevens in en we nemen contact met je op voor een gratis en vrijblijvend
                                 kennismakingsgesprek met een loopbaancoach bij jou in de buurt.</p>
@@ -333,9 +266,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                         onSubmit={handleSubmit}
                         className="flex flex-col sm:w-3/4 md:w-3/5 lg:w-1/2"
                     >
-                        {/* Your form inputs for result and email */}
-                        {/* <input type="text" value={result} onChange={(e) => setResult(e.target.value)} /> */}
-
                         <div className="flex flex-row">
                             <input
                                 type="firstName"
@@ -388,20 +318,57 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                             className="h-8 bg-slate-100 px-2 rounded mt-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
                         />
                         <p className='text-sm text-slate-400 italic mx-5 text-left -ml-0'>* Verplichte velden</p>
-
-                        <button
-                            className="bg-[#87bdd8] w-20 text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded text-sm px-2 py-1 text-center me-2 mb-2 ml-4 my-8"
-                            data-te-ripple-init
-                            type="submit"
-                        >
-                            Verzend
-                        </button>
+                        <div className='flex justify-start mt-6'>
+                            <button
+                                className="bg-[#2f8bc9] w-20 text-slate-200 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded text-sm px-2 py-1 text-center me-2 mb-2"
+                                data-te-ripple-init
+                                type="submit"
+                            >
+                                verzend
+                            </button>
+                        </div>
 
                     </form>
                 </div>
+                {/* <div className="mt-8 md:px-8"> */}
+                <div className="flex flex-row justify-between w-full text-left text-slate-200 mt-12 lg-custom:mt-4 lg-custom:px-6">
+                    <div className="flex flex-row w-28 justify-center bg-[#2f8bc9] md:px-2 py-1 rounded-md">
+                        <p>
+                            <a
+                                href="https://www.triangelloopbaancentrum.be"
+                                target="_blank"
+                                className='sm:text-sm hover:text-gray-400'
+                            >
+                                meer info
+                            </a>
 
+                        </p>
+                    </div>
+                    <div className="flex flex-row w-28 md:w-32 justify-center bg-[#2f8bc9] md:px-2 py-1 rounded-md">
+                        <p>
+                            <a
+                                href="mailto:info@triangelloopbaancentrum.be"
+                                className='sm:text-sm hover:text-gray-400'
+                            >
+                                mail
+                            </a>
+
+                        </p>
+                    </div>
+                    <div className="flex flex-row w-28 md:w-32 justify-center bg-[#2f8bc9] md:px-2 py-1 rounded-md">
+                        <Image
+                            src="/images/phone_white.png"
+                            alt="icon"
+                            width={12}
+                            height={12}
+                            className="mr-2 mb-1"
+                        />
+                        <p className="text-lg sm:text-sm text-white tracking-normal">03 500 03 10</p>
+                    </div>
+                </div>
+                {/* </div> */}
             </div>
-            <div className='w-0 md:w-1/5 lg:w-2/5'></div>
+            <div className='w-0 md:1/4 lg:w-1/6'></div>
         </div >
     );
 };
