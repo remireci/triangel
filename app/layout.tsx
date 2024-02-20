@@ -6,7 +6,9 @@ import './globals.css';
 import Header from './components/Header';
 import Footer from "./components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from '@vercel/analytics/react';
+import { Suspense } from 'react';
+// import { Analytics } from '@vercel/analytics/react';
+import Analytics from './analytics';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
   keywords: 'autisme, loopbaanvragen',
   icons: {
     icon: '/icon.png',
-  },  
+  },
 }
 
 export default function RootLayout({
@@ -36,18 +38,21 @@ export default function RootLayout({
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </head>
+
       <body className={roboto.className}>
-        <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">        
+        <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">
           <Header />
           {children}
           <SpeedInsights />
-          <Analytics />
+          <Suspense>
+            <Analytics />
+          </Suspense>
           <Footer />
         </div>
         <ToastContainer />
       </body>
       <GoogleTagManager gtmId="G-86BXTERJV5" />
-      <GoogleAnalytics gaId="G-86BXTERJV5"/>
+      <GoogleAnalytics gaId="G-86BXTERJV5" />
     </html>
   )
 }
