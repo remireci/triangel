@@ -47,7 +47,7 @@ export default function RootLayout({
         <ToastContainer />
       </body>
       <GoogleTagManager gtmId="G-86BXTERJV5" />
-      <GoogleAnalytics gaId=""/>
+      <GoogleAnalytics gaId="G-86BXTERJV5"/>
     </html>
   )
 }
