@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,7 +10,8 @@ import { Suspense } from 'react';
 // import { Analytics } from '@vercel/analytics/react';
 import Analytics from './analytics';
 import { GoogleTagManager } from '@next/third-parties/google';
-import { GoogleAnalytics } from '@next/third-parties/google';
+// import { GoogleAnalytics } from '@next/third-parties/google';
+import GoogleAnalytics from './GoogleAnalytics';
 
 const roboto = Roboto({
   weight: ['100', '300', '400', '700'],
@@ -19,9 +20,9 @@ const roboto = Roboto({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Loopbaantest',
-  description: 'Problemen op de job? Los het op!',
+  description: 'Gratis loopbaantest. Bekijk online meteen je resultaat. Problemen op de job? Los het op!',
   keywords: 'autisme, loopbaanvragen',
   icons: {
     icon: '/icon.png',
@@ -30,11 +31,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
 }) {
   return (
     <html lang="nl">
+      <GoogleAnalytics GA_TRACKING_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </head>
