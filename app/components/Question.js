@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import routeHandler from './questions/route';
 
-const Question = ({ question, category, id, onAnswer, onBack, setLocalData, stepsBack, setAnsweredQuestions, answeredQuestions }) => {
+const Question = ({ question, category, id, onAnswer, onBack, setLocalData, stepsBack, answeredQuestions }) => {
   // const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
@@ -58,12 +58,9 @@ const Question = ({ question, category, id, onAnswer, onBack, setLocalData, step
     onAnswer();
   }
 
-  console.log("stepsback from questions", stepsBack);
-
-  const blueLineWidth = `${((answeredQuestions.length - stepsBack) / 18) * 100}%`;
+  const blueLineWidth = `${((answeredQuestions.length - stepsBack) / 17) * 100}%`;
 
   return (
-    // <div className='flex flex-row pb-36 lg:mt-48'></div>
     <div className="flex flex-row mt-6 md:mt-8 lg:mt-48 px-4 md:px-0 lg:pt-12 pb-24 bg-[#cfe0e8]">
       <div className='w-0 md:w-1/5 lg:w-1/4'></div>
       <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-1/2 h-55 mb-0 md:-mb-10 p-4 bg-[#daebe8] rounded shadow'>
@@ -73,7 +70,6 @@ const Question = ({ question, category, id, onAnswer, onBack, setLocalData, step
         >
         </div>
 
-        {/* <div className=''> */}
         <div className='text-center mt-8 mb-6 px-4'>
           <p className="text-xl mb-4">{question}</p>
         </div>
@@ -95,14 +91,10 @@ const Question = ({ question, category, id, onAnswer, onBack, setLocalData, step
                 onClick={onBack}
                 className="text-sm text-gray-600 relative">
                 <span className='text-xs text-slate-400 pb-2 mr-2'>vorige</span>
-                {/* <span className='text-xs text-slate-400 opacity-0 absolute top-0 left-4 w- p-2 transition-opacity duration-300 group-hover:opacity-100'>
-                  Vorige vraag
-                </span> */}
               </button>
             )}
           </div>
         </div>
-        {/* </div> */}
       </div>
       <div className='w-0 md:w-1/5 lg:w-1/4 '></div>
     </div>

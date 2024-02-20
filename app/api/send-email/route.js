@@ -208,10 +208,10 @@ async function sendEmail(data, questions) {
     const mailDataCoach = {
       from: {
         name: `Triangel Loopbaantest`,
-        address: "info@loopbaantest-vlaanderen.be",
+        address: "info@triangel-loopbaantest.be",
       },
       replyTo: "",
-      to: ["dirk_mertens@fastmail.fm", "jan.martens@telenet.be"],
+      to: ["dirk_mertens@fastmail.fm"],
       subject: "Loopbaantest: Aanvraag voor begeleiding",
       html: htmlCoach,
     };

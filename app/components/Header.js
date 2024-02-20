@@ -51,7 +51,7 @@ const Header = () => {
           </div>
           <div className="flex flex-col md:flex-row w-2/3 md:w-3/5 items-center justify-center sm:-mt-12 md:mt-8 md:-ml-4 mb-8 md:pt-6 ">            
             <div className="w-full md:w-2/3 lg-custom:w-full text-lg md:text-xl lg-custom:text-2xl font-semibold lg:font-normal lg:text-3xl md:-ml-5 lg:ml-0 px-5 md:px-0 md:mr-0 mt-6 md:-mt-4">
-              <a href="/">{header_text}</a>
+              <p>{header_text}</p>
             </div>            
           </div>
           <div className="w-0 md:w-1/5"></div>

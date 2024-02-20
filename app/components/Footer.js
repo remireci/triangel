@@ -10,6 +10,7 @@ const Footer = () => {
                         <a
                             href="https://www.triangelloopbaancentrum.be"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className='ml-2'
                         >
                             Triangel Loopbaancentrum
@@ -36,6 +37,7 @@ const Footer = () => {
                             <a
                                 href="https://www.facebook.com/people/Triangel-Loopbaancentrum/100092479596578/"
                                 target='_blank'
+                                rel="noopener noreferrer"
                                 className="hover-switch-image-fb"
                             >
                                 <img
@@ -49,6 +51,7 @@ const Footer = () => {
                             <a
                                 href="https://www.instagram.com/triangelvzw/"
                                 target='_blank'
+                                rel="noopener noreferrer"
                                 className="hover-switch-image-ig"
                             >
                                 <img

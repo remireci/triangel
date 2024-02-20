@@ -17,6 +17,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     const [postalCode, setPostalCode] = useState('');
     const [city, setCity] = useState('');
 
+
     useEffect(() => {
         const storedCategoryData = JSON.parse(localStorage.getItem('categoryData'));
 
@@ -29,18 +30,26 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 if (item.category === "stress") {
                     if (item.irr === 3 || item.no === 3) {
                         result = 5;
+                    } else if (item.irr === 2 || item.no === 2) {
+                        console.log("result = 4");
+                        result = 4;
                     } else {
                         result = item.no - item.yes;
                     }
                 } else {
                     if (item.irr === 3 || item.yes === 3) {
                         result = 5;
+                    } else if (item.irr === 2 || item.yes === 2) {
+                        console.log("result = 4");
+                        result = 4;
                     } else {
                         result = item.yes - item.no;
                     }
                 };
 
                 accumulatedResult += result;
+
+                console.log("accumulated resul", accumulatedResult);
 
                 return { ...item, result, accumulatedResult };
             });
@@ -49,6 +58,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
 
     }, []);
 
+    
     useEffect(() => {
         const fetchAnswers = async () => {
             try {
@@ -64,6 +74,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
 
     }, []);
 
+    
     useEffect(() => {
         // Initialize the expanded state for each category initially as false
         if (categoryData.length > 0) {
@@ -100,7 +111,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         }
         return text;
     };
-
 
 
     const handleSubmit = async (e) => {
@@ -162,29 +172,28 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         }
     };
 
+    
     const handlePrint = () => {
         window.print();
     };
 
+    
     return (
         <div className="flex flex-col lg-custom:flex-row items-center lg-custom:items-stretch px-2 md:px-0 pb-28 lg:pt-48 text-slate-600">
             <div className='w-0 md:1/4 lg:w-1/6'></div>
             <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-1/3 h-86 mx-4 mt-4 lg-custom:mt-10 lg-custom:-mb-10 px-1 md:px-2 lg-custom:px-6 py-6 text-base sm:text-sm bg-[#daebe8] rounded shadow'>
                 <div className="flex flex-col items-center justify-center sm:pt-4">
                     <p className="text-2xl font-bold mb-12">het resultaat</p>
-                    {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult === 30 ? (
+                    {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult >= 24 ? (
                         <div className="flex flex-col items-center px-2 md-custom:px-12 lg:px-12">
                             <>
                                 {answersData.map((answer, index) => {
                                     if (answer.id === 7) {
                                         return (
                                             <div key={index} className="result-category">
-                                                <div>
-                                                    <strong>Titel????</strong>
-                                                </div>
                                                 <span>{answer.answer_0}</span>
                                                 <details className="mt-2">
-                                                    <summary className="text-slate-400" onClick={() => toggleExpand()}>
+                                                    <summary className="text-slate-400 cursor-pointer" onClick={() => toggleExpand()}>
                                                         {toggleSummaryText()}
                                                     </summary>
                                                     <div><span>{italicizeFirstWord(answer.answer_1)}</span></div>
@@ -224,7 +233,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                                                 <div className="mt-2"><span>{italicizeFirstWord(answer.answer_3)}</span></div>
                                                                 <div className="mt-2"><span>{italicizeFirstWord(answer.answer_4)}</span></div>
                                                                 <div className="mt-2"><span>{italicizeFirstWord(answer.answer_5)}</span></div>
-                                                                {/* Add more spans for additional answers */}
                                                             </details>
                                                         </div>
                                                     );
@@ -276,8 +284,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                 required
                             />
                         </div>
-
-
                         <input
                             type="Name"
                             placeholder="Familienaam *"
@@ -318,7 +324,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                             className="h-8 bg-slate-100 px-2 rounded mt-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
                         />
                         <p className='text-sm text-slate-400 italic mx-5 text-left -ml-0'>* Verplichte velden</p>
-                        <div className='flex justify-start mt-6'>
+                        <div className='flex justify-start mt-6 mb-16'>
                             <button
                                 className="bg-[#2f8bc9] w-20 text-slate-200 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded text-sm px-2 py-1 text-center me-2 mb-2"
                                 data-te-ripple-init
@@ -337,6 +343,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                             <a
                                 href="https://www.triangelloopbaancentrum.be"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className='sm:text-sm hover:text-gray-400'
                             >
                                 meer info

@@ -63,7 +63,7 @@ const Welcome = () => {
               <p className="w-30 bg-[#87bdd8] hover:bg-blue-800 text-sm text-slate-200 uppercase rounded px-4 py-2">Start Test</p>
             </Link>
             <p className='text-xs text-slate-400 italic mt-8 text-center'>Bij deelname aan de test worden sommige van
-              je gegevens verwerkt. Meer info vind je <u><a href="/privacy" target="_blank">hier</a></u>.</p>
+              je gegevens verwerkt. Meer info vind je <u><a href="/privacy" target="_blank" rel="noopener noreferrer">hier</a></u>.</p>
           </div>
         </div>
         <div className='w-0 md:w-1/5 lg:w-1/5'></div>
