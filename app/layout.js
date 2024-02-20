@@ -44,15 +44,12 @@ export default function RootLayout({
           <Header />
           {children}
           <SpeedInsights />
-          <Suspense>
-            <Analytics />
-          </Suspense>
           <Footer />
         </div>
         <ToastContainer />
       </body>
-      <GoogleTagManager gtmId="G-86BXTERJV5" />
-      <GoogleAnalytics gaId="G-86BXTERJV5" />
+      {/* <GoogleTagManager gtmId="G-86BXTERJV5" />
+      <GoogleAnalytics gaId="G-86BXTERJV5" /> */}
     </html>
   )
 }
