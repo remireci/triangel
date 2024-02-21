@@ -19,9 +19,9 @@ const roboto = Roboto({
 })
 
 export const metadata = {
-  title: 'Loopbaantest',
-  description: 'Gratis loopbaantest. Bekijk online meteen je resultaat. Problemen op de job? Los het op!',
-  keywords: 'autisme, loopbaanvragen',
+  title: 'Gratis Loopbaantest',
+  description: 'Vragen over je job en loopbaan? Doe de test en bekijk meteen het resultaat. Het geeft inzicht in de knelpunten. En is het begin van een oplossing.',
+  keywords: 'loopbaantest, beroepskeuzetest, carrière test, carrière advies, loopbaan, carrière, loopbaanbegeleiding, competenties, andere job, career coaching',
   icons: {
     icon: '/icon.png',
   },
@@ -31,7 +31,7 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="nl">      
+    <html lang="nl">
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </head>
