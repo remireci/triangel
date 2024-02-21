@@ -6,12 +6,10 @@ import './globals.css';
 import Header from './components/Header';
 import Footer from "./components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Suspense } from 'react';
-// import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
-// import GoogleAnalytics from './GoogleAnalytics';
-import Analytics from './components/gtmComponent';
+
 
 const roboto = Roboto({
   weight: ['100', '300', '400', '700'],
@@ -33,8 +31,7 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="nl">
-      {/* <GoogleAnalytics GA_TRACKING_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} /> */}
+    <html lang="nl">      
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </head>
@@ -43,16 +40,14 @@ export default function RootLayout({
         <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">
           <Header />
           {children}
-          {/* <Suspense>
-            <Analytics />
-          </Suspense> */}
           <SpeedInsights />
+          <Analytics />
           <Footer />
         </div>
         <ToastContainer />
       </body>
-      <GoogleTagManager gtmId="GTM-PRLDR4CL" />
-      <GoogleAnalytics gaId="G-86BXTERJV5" />
+      <GoogleTagManager gtmId={process.env.GTM-PRLDR4CL} />
+      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} />
     </html>
   )
 }
