@@ -9,8 +9,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Suspense } from 'react';
 // import { Analytics } from '@vercel/analytics/react';
 import { GoogleTagManager } from '@next/third-parties/google';
-// import { GoogleAnalytics } from '@next/third-parties/google';
-import GoogleAnalytics from './GoogleAnalytics';
+import { GoogleAnalytics } from '@next/third-parties/google';
+// import GoogleAnalytics from './GoogleAnalytics';
 import Analytics from './components/gtmComponent';
 
 const roboto = Roboto({
@@ -34,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl">
-      <GoogleAnalytics GA_TRACKING_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+      {/* <GoogleAnalytics GA_TRACKING_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} /> */}
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </head>
@@ -51,8 +51,8 @@ export default function RootLayout({
         </div>
         <ToastContainer />
       </body>
-      {/* <GoogleTagManager gtmId="G-86BXTERJV5" />
-      <GoogleAnalytics gaId="G-86BXTERJV5" /> */}
+      {/* <GoogleTagManager gtmId="G-86BXTERJV5" /> */}
+      <GoogleAnalytics gaId="G-86BXTERJV5" />
     </html>
   )
 }
