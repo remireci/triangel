@@ -43,15 +43,15 @@ export default function RootLayout({
         <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">
           <Header />
           {children}
-          <Suspense>
+          {/* <Suspense>
             <Analytics />
-          </Suspense>
+          </Suspense> */}
           <SpeedInsights />
           <Footer />
         </div>
         <ToastContainer />
       </body>
-      {/* <GoogleTagManager gtmId="G-86BXTERJV5" /> */}
+      <GoogleTagManager gtmId="GTM-PRLDR4CL" />
       <GoogleAnalytics gaId="G-86BXTERJV5" />
     </html>
   )
