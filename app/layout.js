@@ -46,7 +46,7 @@ export default function RootLayout({
         </div>
         <ToastContainer />
       </body>
-      <GoogleTagManager gtmId={process.env.GTM-PRLDR4CL} />
+      <GoogleTagManager gtmId={process.env.GOOGLE_TAG_MANAGER} />
       <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} />
     </html>
   )
