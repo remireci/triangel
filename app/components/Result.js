@@ -58,7 +58,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
 
     }, []);
 
-    
+
     useEffect(() => {
         const fetchAnswers = async () => {
             try {
@@ -74,7 +74,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
 
     }, []);
 
-    
+
     useEffect(() => {
         // Initialize the expanded state for each category initially as false
         if (categoryData.length > 0) {
@@ -172,17 +172,26 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         }
     };
 
-    
+
     const handlePrint = () => {
         window.print();
     };
 
-    
+    // Listen for beforeunload event
+    window.addEventListener('beforeunload', () => {
+        // Remove the data from localStorage
+        localStorage.removeItem('categoryData');
+    });
+
+
     return (
         <div className="flex flex-col lg-custom:flex-row items-center lg-custom:items-stretch px-2 md:px-0 pb-28 lg:pt-48 text-slate-600">
             <div className='w-0 md:1/4 lg:w-1/6'></div>
             <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-1/3 h-86 mx-4 mt-4 lg-custom:mt-10 lg-custom:-mb-10 px-1 md:px-2 lg-custom:px-6 py-6 text-base sm:text-sm bg-[#daebe8] rounded shadow'>
-                <div className="flex flex-col items-center justify-center sm:pt-4">
+                <div
+                    className="flex flex-col items-center justify-center sm:pt-4"
+                    id="print-content"
+                >
                     <p className="text-2xl font-bold mb-12">het resultaat</p>
                     {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult >= 24 ? (
                         <div className="flex flex-col items-center px-2 md-custom:px-12 lg:px-12">

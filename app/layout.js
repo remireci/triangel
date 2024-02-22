@@ -24,6 +24,12 @@ export const metadata = {
   keywords: 'loopbaantest, Vlaanderen, carrière test, carrière advies, loopbaan, carrière, loopbaanbegeleiding, competenties, andere job, career coaching',
   icons: {
     icon: '/icon.png',
+    shortcut: '/shortcut-icon.png',
+    apple: '/apple-icon.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-touch-icon-precomposed.png',
+    },
   },
 }
 
