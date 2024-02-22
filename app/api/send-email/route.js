@@ -37,8 +37,8 @@ function generateEmailContent(data, questions) {
   .green {
     background-color: green;
   }
-  .black {
-    background-color: black;
+  .blue {
+    background-color: blue;
   }
 `;
 

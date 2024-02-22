@@ -2,11 +2,9 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const Welcome = () => {
-  const [ip, setIp] = useState("");
-  const [hasTestDone, setHasTestDone] = useState(false);
+  const [ip, setIp] = useState("");  
 
   useEffect(() => {
 

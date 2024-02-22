@@ -1,13 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-// import { useRouter } from 'next/navigation';
+
 
 const ConfirmationPage = () => {
-  // const router = useRouter();
-
-  // const handleReturnHome = () => {
-  //   // router.push('/'); // Redirect to the home page or any other relevant page
-  // };
 
   return (
     <div className="flex flex-col items-center lg:justify-center sm:mt-12 md:mt-6 px-2 min-h-screen bg-[#cfe0e8]">
@@ -21,22 +16,12 @@ const ConfirmationPage = () => {
         </p>
         <Link
           className=''
-          href="/"
+          href="https://www.triangelloopbaancentrum.be"
         >
           <p className="w-30 bg-[#87bdd8] hover:bg-blue-800 text-sm text-white rounded mt-12 px-4 py-2">
-            <a href="https://www.triangelloopbaancentrum.be">
-              Meer info
-            </a>
-            
+              Meer info            
             </p>
         </Link>
-
-        {/* <button
-        // onClick={handleReturnHome}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Return Home
-      </button> */}
       </div>
     </div>
   );

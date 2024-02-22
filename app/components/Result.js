@@ -338,20 +338,20 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 </div>
                 {/* <div className="mt-8 md:px-8"> */}
                 <div className="flex flex-row justify-between w-full text-left text-slate-200 mt-12 lg-custom:mt-4 lg-custom:px-6">
-                    <div className="flex flex-row w-28 justify-center bg-[#2f8bc9] md:px-2 py-1 rounded-md">
+                    <div className="flex flex-row w-28 justify-center bg-[#2f8bc9] hover:bg-blue-800 md:px-2 py-1 rounded-md cursor-pointer">
                         <p>
                             <a
                                 href="https://www.triangelloopbaancentrum.be"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className='sm:text-sm hover:text-gray-400'
+                                className='sm:text-sm'
                             >
                                 meer info
                             </a>
 
                         </p>
                     </div>
-                    <div className="flex flex-row w-28 md:w-32 justify-center bg-[#2f8bc9] md:px-2 py-1 rounded-md">
+                    <div className="flex flex-row w-28 md:w-32 justify-center bg-[#2f8bc9] hover:bg-blue-800 md:px-2 py-1 rounded-md cursor-pointer">
                         <p>
                             <a
                                 href="mailto:info@triangelloopbaancentrum.be"

@@ -18,7 +18,7 @@ const Nosecondtest = () => {
                     <p className="text-sm mb-1">Testresultaat verloren? Contacteer Triangel loopbaanbegeleiding.</p>
                 </div>
                 <div className="flex flex-col md:flex-row w-full justify-between text-slate-200 mt-4 px-20">
-                    <div className="flex flex-row w-32 justify-center mt-4 bg-[#2f8bc9] px-2 py-1 rounded-md">
+                    <div className="flex flex-row w-32 justify-center mt-4 bg-[#2f8bc9] px-2 py-1 rounded-md cursor-pointer">
                         <Link
                             href="https://www.triangelloopbaancentrum.be"
                             className='sm:text-sm hover:text-gray-400'
@@ -26,7 +26,7 @@ const Nosecondtest = () => {
                             meer info
                         </Link>
                     </div>
-                    <div className="flex flex-row w-32 justify-center mt-4 bg-[#2f8bc9] px-2 py-1 rounded-md">
+                    <div className="flex flex-row w-32 justify-center mt-4 bg-[#2f8bc9] px-2 py-1 rounded-md cursor-pointer">
                         <Link
                             href="mailto:info@triangelloopbaancentrum.be"
                             className='sm:text-sm hover:text-gray-400'
