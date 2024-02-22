@@ -7,12 +7,6 @@ export default function sitemap() {
         priority: 1,
       },
       {
-        url: 'https://www.triangel-loopbaantest.be/test',
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.8,
-      },
-      {
         url: 'https://www.triangel-loopbaantest.be/privacy',
         lastModified: new Date(),
         changeFrequency: 'monthly',

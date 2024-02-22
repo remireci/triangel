@@ -2,15 +2,14 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Welcome = () => {
   const [ip, setIp] = useState("");
   const [hasTestDone, setHasTestDone] = useState(false);
 
   useEffect(() => {
-    // if (localStorage.getItem("categoryData")) {
-    //     localStorage.removeItem("categoryData");
-    // }
+
     const fetchIP = async () => {
       const response = await fetch('/api/get-ip');
       const data = await response.json();
@@ -52,7 +51,7 @@ const Welcome = () => {
 
       <div
         style={{ backgroundImage: `url(/images/slider-ondersteuning-op-meerdere-vlakken.jpg)` }}
-        className="flex flex-row items-end justify-center h-[80vh] px-4 md:px-0 pt-28 md:pt-36 lg:pt-36 w-screen bg-center lg:bg-left-top bg-cover"
+        className="flex flex-row relative items-end justify-center h-[100vh] px-4 md:px-0 pt-28 md:pt-36 lg:pt-36 w-screen bg-center lg:bg-left-top bg-cover"
       >
       </div>
     </div>

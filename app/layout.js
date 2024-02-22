@@ -21,7 +21,7 @@ const roboto = Roboto({
 export const metadata = {
   title: 'Gratis Loopbaantest',
   description: 'Vragen over je job en loopbaan? Doe de test en bekijk meteen het resultaat. Het geeft inzicht in de knelpunten. En is het begin van een oplossing.',
-  keywords: 'loopbaantest, beroepskeuzetest, carrière test, carrière advies, loopbaan, carrière, loopbaanbegeleiding, competenties, andere job, career coaching',
+  keywords: 'loopbaantest, Vlaanderen, carrière test, carrière advies, loopbaan, carrière, loopbaanbegeleiding, competenties, andere job, career coaching',
   icons: {
     icon: '/icon.png',
   },

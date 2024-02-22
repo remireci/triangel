@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
     return (
-        <footer className="absolute bottom-0 h-50 w-full bg-[#2e2b36] py-3 text-slate-100 font-extralight shadow-md">
+        <footer className="absolute bottom-0 h-50 w-full bg-[#2e2b36] px-1 py-3 text-slate-100 font-extralight shadow-md">
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
                 <div className="text-center">
                     <p className="text-xs">© {new Date().getFullYear()}
@@ -33,31 +34,34 @@ const Footer = () => {
                         <p className="text-xs hover:text-gray-400">Privacybeleid</p>
                     </Link>
                     <div className='flex space-x-2' >
-                        <p className="text-center md:text-left text-sm">
+                        <p className="text-center md:text-left text-xl">
                             <a
                                 href="https://www.facebook.com/people/Triangel-Loopbaancentrum/100092479596578/"
                                 target='_blank'
                                 rel="noopener noreferrer"
                                 className="hover-switch-image-fb"
                             >
-                                <img
+                                <Image
                                     src="/images/107153_circle_facebook_icon.png"
                                     alt="Facebook Icon"
-                                    className="w-5 h-5"
+                                    width={25}
+                                    height={25}
+                                    
                                 />
                             </a>
                         </p>
-                        <p className="text-center md:text-left text-sm">
+                        <p className="text-center md:text-left text-xl">
                             <a
                                 href="https://www.instagram.com/triangelvzw/"
                                 target='_blank'
                                 rel="noopener noreferrer"
                                 className="hover-switch-image-ig"
                             >
-                                <img
+                                <Image
                                     src="/images/43-432901_instagram-grey-circle-logo-instagram-bleu.png"
                                     alt="Facebook Icon"
-                                    className="w-5 h-5"
+                                    width={25}
+                                    height={25}
                                 />
                             </a>
                         </p>
