@@ -8,7 +8,7 @@ const Nosecondtest = () => {
     return (
         <div className='flex flex-row pb-36 lg:mt-48 text-slate-600'>
             <div className='w-0 lg-custom:w-1/5 lg:w-1/4'></div>
-            <div className='flex flex-col items-center justify-between w-full lg-custom:w-3/5 lg:w-1/2 h-86 mx-4 -mb-10 mt-8 px-6 py-6 text-base bg-[#daebe8] rounded shadow'>
+            <div className='flex flex-col items-center justify-between w-full w-full lg-custom:w-3/5 lg:w-1/2 h-86 mx-4 -mb-10 mt-8 px-6 py-6 text-base bg-[#daebe8] rounded shadow'>
                 <div className="flex flex-col sm:pt-4 mt-auto">
                     <p className="text-xl mb-14">Testresultaat reeds afgeleverd!</p>
                 </div>

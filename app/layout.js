@@ -20,15 +20,14 @@ const roboto = Roboto({
 
 export const metadata = {
   title: 'Gratis Loopbaantest',
-  description: 'Vragen over je job en loopbaan? Doe de test en bekijk meteen het resultaat. Het geeft inzicht in de knelpunten. En is het begin van een oplossing.',
-  keywords: 'loopbaantest, Vlaanderen, VDAB, carrière advies, loopbaan, loopbaanbegeleiding, competenties, andere job, career coaching',
+  description: 'Vragen over je job en loopbaan? Doe de loopbaantest en bekijk meteen het resultaat en de knelpunten. Zet een nieuwe stap in je carrière.',
+  keywords: 'loopbaantest, Vlaanderen, VDAB, loopbaancheques, carrière advies, loopbaan, loopbaanbegeleiding, competenties, andere job, career coaching',
   icons: {
     icon: '/icon.png',
-    shortcut: '/shortcut-icon.png',
     apple: '/apple-icon.png',
     other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/apple-touch-icon-precomposed.png',
+      rel: 'apple-touch-icon',
+      url: '/apple-touch-icon.png',
     },
   },
 }

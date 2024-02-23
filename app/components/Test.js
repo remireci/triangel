@@ -19,6 +19,7 @@ const Test = () => {
         if (localStorage.getItem("categoryData")) {
             localStorage.removeItem("categoryData");
         }
+        
         const fetchQuestions = async () => {
             const response = await fetch('/api/questions');
             const data = await response.json();
