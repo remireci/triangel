@@ -2,7 +2,7 @@ export default function manifest() {
     return {
         name: 'Gratis Loopbaantest',
         short_name: 'Jouw Loopbaantest',
-        description: 'Vragen over je job en loopbaan? Doe de test en bekijk meteen het resultaat. Het geeft inzicht in de knelpunten. En is het begin van een oplossing.',
+        description: 'Vragen over je job en loopbaan? Doe de loopbaantest en bekijk meteen het resultaat en de knelpunten. Zet een nieuwe stap in je carrière.',
         start_url: '/',
         display: 'standalone',
         background_color: '#1c7eb4',

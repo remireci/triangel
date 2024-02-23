@@ -30,6 +30,8 @@ export const metadata = {
       url: '/apple-touch-icon.png',
     },
   },
+
+
 }
 
 export default function RootLayout({
@@ -39,6 +41,7 @@ export default function RootLayout({
     <html lang="nl">
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+        <link rel="manifest" href="/manifest.json" />
       </head>
 
       <body className={roboto.className}>
