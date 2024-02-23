@@ -178,7 +178,7 @@ function getCircleColor(result) {
     return 'yellow';
   } else if (result >= 0 && result <= 3) {
     return 'green';
-  } else if (result === 5) {
+  } else if (result >= 4) {
     return 'blue';
   }
   return ''; // Default color or handle other cases
@@ -211,7 +211,7 @@ async function sendEmail(data, questions) {
         address: "info@triangel-loopbaantest.be",
       },
       replyTo: "",
-      to: ["dirk_mertens@fastmail.fm"],
+      to: ["reci.reciproque@gmail.com", "info@triangelloopbaancentrum.be"],
       subject: "Loopbaantest: Aanvraag voor begeleiding",
       html: htmlCoach,
     };
