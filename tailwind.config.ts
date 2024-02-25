@@ -22,6 +22,9 @@ const config: Config = {
       'lg-custom': '1023px', 
     }
   },
+  future: {
+    hoverOnlyWhenSupported: true
+  },
 
   plugins: [],
 

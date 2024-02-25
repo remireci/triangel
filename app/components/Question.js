@@ -74,13 +74,13 @@ const Question = ({ question, category, id, onAnswer, onBack, setLocalData, step
           <p className="text-xl mb-4">{question}</p>
         </div>
         <div className='flex flex-row justify-center mb-8'>
-          <button onClick={() => updateScore("yes")} className="bg-[#87bdd8] hover:bg-blue-800 focus:!bg-[#87bdd8] focus-visible:!bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2">
+          <button onClick={() => updateScore("yes")} className="bg-[#87bdd8] hover:bg-blue-800 focus:bg-[#87bdd8] focus-visible:bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2 touch-pan-up">
             Ja
           </button>
-          <button onClick={() => updateScore("no")} className="bg-[#87bdd8] hover:bg-blue-800 focus:!bg-[#87bdd8] focus-visible:!bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2">
+          <button onClick={() => updateScore("no")} className="bg-[#87bdd8] hover:bg-blue-800 focus:bg-[#87bdd8] focus-visible:bg-blue-800 text-sm text-white px-4 py-2 rounded mr-2 touch-pan-up">
             Nee
           </button>
-          <button onClick={() => updateScore("irr")} className="bg-[#87bdd8] hover:bg-blue-800 focus:!bg-[#87bdd8] focus-visible:!bg-blue-800 text-sm text-white px-4 py-2 rounded">
+          <button onClick={() => updateScore("irr")} className="bg-[#87bdd8] hover:bg-blue-800 focus:bg-[#87bdd8] focus-visible:bg-blue-800 text-sm text-white px-4 py-2 rounded touch-pan-up">
             Niet van toepassing
           </button>
         </div>
