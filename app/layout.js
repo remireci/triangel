@@ -21,10 +21,6 @@ const roboto = Roboto({
 export const metadata = {
   alternates: {
     canonical: '/',
-    languages: {
-      'nl-BE': '/nl-BE',
-      'nl-NL': '/nl-NL'
-    }
   },
 
   title: 'Gratis Loopbaantest',
