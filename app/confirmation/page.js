@@ -7,7 +7,7 @@ const ConfirmationPage = () => {
   return (
     <div className="flex flex-col items-center lg:justify-center sm:mt-12 md:mt-6 px-2 min-h-screen bg-[#cfe0e8]">
       <div className='flex flex-col w-full md:w-2/3 px-4 py-4 mx-2 justify-center items-center bg-[#daebe8]'>
-        <h1 className="text-2xl font-bold mb-6">Bedankt!</h1>
+        <h2 className="text-2xl font-bold mb-6">Bedankt!</h2>
         <p className="text-center mb-1 mt-8">
           Je gegevens zijn naar Triangel Loopbaancentrum verstuurd.
         </p>
