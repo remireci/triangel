@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const Welcome = () => {
-  const [ip, setIp] = useState("");  
+  const [ip, setIp] = useState("");
 
   useEffect(() => {
 
@@ -44,13 +44,18 @@ const Welcome = () => {
           </div>
         </div>
         <div className='w-0 md:w-1/5 lg:w-1/5'></div>
-
       </div>
-
       <div
-        style={{ backgroundImage: `url(/images/slider-ondersteuning-op-meerdere-vlakken.jpg)` }}
+        style={{ backgroundImage: `url(/images/loopbaantest-job-ondersteuning.jpg)` }}
         className="flex flex-row relative items-end justify-center h-[80vh] px-4 md:px-0 pt-28 md:pt-36 lg:pt-36 w-screen bg-center lg:bg-left-top bg-cover"
+        alt="Vrijblijvend advies met de gratis loopbaantest."
       >
+        <img
+          src="/images/loopbaantest-job-ondersteuning.jpg"
+          alt="Vrijblijvend advies met de gratis loopbaantest."
+          className="hidden"
+          aria-hidden="true"
+        />
       </div>
     </div>
   );

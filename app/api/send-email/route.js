@@ -211,7 +211,8 @@ async function sendEmail(data, questions) {
         address: "info@triangel-loopbaantest.be",
       },
       replyTo: "",
-      to: ["reci.reciproque@gmail.com", "info@triangelloopbaancentrum.be"],
+      // "info@triangelloopbaancentrum.be"
+      to: ["reci.reciproque@gmail.com", "dirk_mertens@fastmail.fm"],
       subject: "Loopbaantest: Aanvraag voor begeleiding",
       html: htmlCoach,
     };

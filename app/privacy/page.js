@@ -33,11 +33,11 @@ const PrivacyPolicy = () => {
                         het Europees Parlement en de Raad van 27 april 2016 en andere toepasselijke Belgische wetgeving.</p>
                     <br />
                     <p>Triangel vzw verzamelt en verwerkt jouw persoonsgegevens wanneer je gebruikmaakt van de professionele diensten van Triangel vzw. 
-                        Bij deelname aan de test wordt je IP-adres versleuteld en anoniem opgeslagen in een database.
+                        Bij deelname aan de test wordt je IP-adres versleuteld en geanonimiseerd opgeslagen in een database.
                         Bij het invullen van een contactformulier op de website verstrek je je naam, telefoonnummer en adres die per mail 
                         worden doorgestuurd naar Triangel Loopbaancentrum. Deze gegevens worden overgemaakt aan een job coach die jou via deze 
                         weg kan contacteren.
-                        Indien je ook je e-mailadres bezorgt, wordt dat gekoppeld aan het IP-adres opgeslagen in de database.
+                        Indien je ook je e-mailadres bezorgt, wordt dat gekoppeld aan het geanonimiseerde IP-adres opgeslagen in de database.
                     </p>
                     <br />
                     <h3 className="text-lg font-semibold mb-2">2.3. Bijzondere en/of gevoelige persoonsgegevens die wij verwerken</h3>

@@ -42,7 +42,8 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <head>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}        
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+                
       </head>
 
       <body className={roboto.className}>
@@ -56,7 +57,7 @@ export default function RootLayout({
         <ToastContainer />
       </body>
       <GoogleTagManager gtmId={process.env.GOOGLE_TAG_MANAGER} />
-      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} />
+      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} anonymizeIp="true" />
     </html>
   )
 }

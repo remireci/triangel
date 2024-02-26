@@ -30,8 +30,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 if (item.category === "stress") {
                     if (item.irr === 3 || item.no === 3) {
                         result = 5;
-                    } else if (item.irr === 2 || item.no === 2) {
-                        console.log("result = 4");
+                    } else if (item.irr === 2 || item.no === 2) {                        
                         result = 4;
                     } else {
                         result = item.no - item.yes;
@@ -39,8 +38,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 } else {
                     if (item.irr === 3 || item.yes === 3) {
                         result = 5;
-                    } else if (item.irr === 2 || item.yes === 2) {
-                        console.log("result = 4");
+                    } else if (item.irr === 2 || item.yes === 2) {                        
                         result = 4;
                     } else {
                         result = item.yes - item.no;
@@ -48,8 +46,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 };
 
                 accumulatedResult += result;
-
-                console.log("accumulated resul", accumulatedResult);
 
                 return { ...item, result, accumulatedResult };
             });

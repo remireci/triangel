@@ -7,29 +7,36 @@ export async function GET(request) {
     const mail = searchParams.get('mail');
 
     try {
-        if (!ipAddress & !mail) {
-            throw new Error('Ip or mail are required');
+        if (!ipAddress && !mail) {
+            throw new Error('IP address or email is required');
         }
 
-        const existingIp = await sql`
-      SELECT * FROM Ips WHERE Ip = ${ipAddress};
-    `;
-        if (existingIp.rows.length > 0) {
-            // If the IP address already exists, update the existing record with the provided email
-            await sql`
-      UPDATE Ips SET Mail = ${mail} WHERE Ip = ${ipAddress};
-    `;
-            // return NextResponse.json({ message: 'Mail added to existing IP address' }, { status: 200 });
-        } else {
-            // If the IP address doesn't exist, insert a new record with the IP and email
-            // This option should never exist!!!
-            await sql`
-        INSERT INTO Ips (Ip, Mail) VALUES (${ipAddress}, ${mail});
-      `;
-            //   return NextResponse.json({ message: 'New record with ip and mail created' }, { status: 200 });
+        if (ipAddress && mail) {
+            // Insert IP address into 'Ips' table
+            await sql`INSERT INTO Ips (Ip) VALUES (${ipAddress}) ON CONFLICT DO NOTHING;`;
+
+            // Insert email into 'Emails' table
+            await sql`INSERT INTO Emails (Email) VALUES (${mail}) ON CONFLICT DO NOTHING;`;
+
+            // Return IPs and Emails
+            const ips = await sql`SELECT * FROM Ips;`;
+            const emails = await sql`SELECT * FROM Emails;`;
+            return NextResponse.json({ ips, emails }, { status: 200 });
+        } else if (ipAddress && !mail) {
+            // Insert IP address into 'Ips' table
+            await sql`INSERT INTO Ips (Ip) VALUES (${ipAddress}) ON CONFLICT DO NOTHING;`;
+
+            // Return IPs
+            const ips = await sql`SELECT * FROM Ips;`;
+            return NextResponse.json({ ips }, { status: 200 });
+        } else if (!ipAddress && mail) {
+            // Insert email into 'Emails' table
+            await sql`INSERT INTO Emails (Email) VALUES (${mail}) ON CONFLICT DO NOTHING;`;
+
+            // Return Emails
+            const emails = await sql`SELECT * FROM Emails;`;
+            return NextResponse.json({ emails }, { status: 200 });
         }
-        const ips = await sql`SELECT * FROM Ips;`;
-        return NextResponse.json({ ips }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
