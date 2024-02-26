@@ -22,6 +22,7 @@ const config: Config = {
       'lg-custom': '1023px', 
     }
   },
+  // disable hover styles for touch screens
   future: {
     hoverOnlyWhenSupported: true
   },

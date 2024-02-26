@@ -69,7 +69,6 @@ const Question = ({ question, category, id, onAnswer, onBack, setLocalData, step
           style={{ height: '2px', backgroundColor: '#2f8bc9', width: blueLineWidth }}
         >
         </div>
-
         <div className='text-center mt-8 mb-6 px-4'>
           <p className="text-xl mb-4">{question}</p>
         </div>

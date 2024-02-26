@@ -1,40 +1,40 @@
-// Connect.js file
+// // Connect.js file
 
-import sqlite3 from 'sqlite3';
-import path from "path";
-
-
-async function initializeDatabase() {
-    // Get the current working directory (root of the project)
-    const rootDir = process.cwd();
-
-    // Construct the path to the database directory
-    const dbDir = path.join(rootDir, 'app', 'data');
-    console.log(dbDir);
-    const dbPath = path.join(dbDir, 'users.db');
-    // Connect to SQLite database, and if it doesn't exist, create it
+// import sqlite3 from 'sqlite3';
+// import path from "path";
 
 
-    const db = new sqlite3.Database(
-        dbPath,
-        sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
-        (err) => {
-            // Error handling for connection
-            if (err) {
-                return console.error(err.message);
-            } else {
-                // Success message for successful connection
-                console.log("Connected to the SQLite database.");
-            }
-        }
-    );
+// async function initializeDatabase() {
+//     // Get the current working directory (root of the project)
+//     const rootDir = process.cwd();
 
-    // Create a table (if not exists)
-    db.run(`CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    ip_address TEXT,
-    email TEXT
-  )`);
+//     // Construct the path to the database directory
+//     const dbDir = path.join(rootDir, 'app', 'data');
+//     console.log(dbDir);
+//     const dbPath = path.join(dbDir, 'users.db');
+//     // Connect to SQLite database, and if it doesn't exist, create it
+
+
+//     const db = new sqlite3.Database(
+//         dbPath,
+//         sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
+//         (err) => {
+//             // Error handling for connection
+//             if (err) {
+//                 return console.error(err.message);
+//             } else {
+//                 // Success message for successful connection
+//                 console.log("Connected to the SQLite database.");
+//             }
+//         }
+//     );
+
+//     // Create a table (if not exists)
+//     db.run(`CREATE TABLE IF NOT EXISTS users (
+//     id INTEGER PRIMARY KEY AUTOINCREMENT,
+//     ip_address TEXT,
+//     email TEXT
+//   )`);
 
     // Define an array of data to be inserted
     // const userData = [
@@ -55,24 +55,24 @@ async function initializeDatabase() {
     //   });
 
     // Select data from the table
-    db.all(`SELECT * FROM users`, [], (err, rows) => {
-        if (err) {
-            console.error(err.message);
-        }
-        rows.forEach((row) => {
-            // console.log("this is the"row);
-        });
-    });
+//     db.all(`SELECT * FROM users`, [], (err, rows) => {
+//         if (err) {
+//             console.error(err.message);
+//         }
+//         rows.forEach((row) => {
+//             // console.log("this is the"row);
+//         });
+//     });
 
-    // Close the database connection
-    db.close((err) => {
-        if (err) {
-            console.error(err.message);
-        } else {
-            console.log('Closed the SQLite database connection.');
-        }
-        ;
-    })
-};
+//     // Close the database connection
+//     db.close((err) => {
+//         if (err) {
+//             console.error(err.message);
+//         } else {
+//             console.log('Closed the SQLite database connection.');
+//         }
+//         ;
+//     })
+// };
 
-export default initializeDatabase;
+// export default initializeDatabase;

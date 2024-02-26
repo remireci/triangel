@@ -31,7 +31,7 @@ const Welcome = () => {
           </h2>
           <h2 className="mb-3">
             Kortom, zit je met vragen over je job en je loopbaan, doe de gratis loopbaantest en je krijgt vrijblijvend loopbaanadvies.
-            De test bestaat uit  15 eenvoudige  meerkeuze vragen en duurt 5 minuten.
+            De test bestaat uit 18 eenvoudige meerkeuze vragen en duurt 5 minuten.
           </h2>
           <div className='flex flex-col mt-12 items-center'>
             <Link
