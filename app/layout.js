@@ -20,7 +20,7 @@ const roboto = Roboto({
 
 export const metadata = {
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.triangel-loopbaantest.be',
   },
 
   title: 'Gratis Loopbaantest',
