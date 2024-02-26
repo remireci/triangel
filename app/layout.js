@@ -19,6 +19,14 @@ const roboto = Roboto({
 })
 
 export const metadata = {
+  alternates: {
+    canonical: '/',
+    languages: {
+      'nl-BE': '/nl-BE',
+      'nl-NL': '/nl-NL'
+    }
+  },
+
   title: 'Gratis Loopbaantest',
   description: 'Vragen over je job en loopbaan? Doe de loopbaantest en bekijk meteen het resultaat en de knelpunten. Zet een nieuwe stap in je carrière.',
   keywords: 'loopbaantest, Vlaanderen, VDAB, loopbaancheques, carrière advies, loopbaan, loopbaanbegeleiding, competenties, andere job, career coaching',
