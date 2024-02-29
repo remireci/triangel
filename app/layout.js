@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 import Header from './components/Header';
 import Footer from "./components/Footer";
+import CookieBanner from "./components/CookieBanner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleTagManager } from '@next/third-parties/google';
@@ -43,13 +44,14 @@ export default function RootLayout({
     <html lang="nl">
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
-                
+
       </head>
 
       <body className={roboto.className}>
         <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">
           <Header />
           {children}
+          <CookieBanner />
           <SpeedInsights />
           <Analytics />
           <Footer />
@@ -57,7 +59,7 @@ export default function RootLayout({
         <ToastContainer />
       </body>
       <GoogleTagManager gtmId={process.env.GOOGLE_TAG_MANAGER} />
-      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} anonymizeIp="true" />
+      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} />
     </html>
   )
 }

@@ -3,9 +3,9 @@ import React from "react";
 const PrivacyPolicy = () => {
     return (
         <div className="text-slate-500 bg-stone-100 min-h-screen py-16 mt-1 lg:mt-44 mb-6">
-            <div className="container mx-auto px-4 w-full md:w-2/3 lg:w-1/3">                
+            <div className="container mx-auto px-4 w-full md:w-2/3 lg:w-1/3">
                 <h2 className="text-3xl font-semibold mb-8">Privacyverklaring</h2>
-                <section className="mb-8">
+                <section className="mb-8" id="privacy">
                     <h2 className="text-xl font-semibold mb-4">1. Wie is verantwoordelijk voor de verwerking van je gegevens?</h2>
 
                     <address className="text-gray-600">
@@ -21,26 +21,60 @@ const PrivacyPolicy = () => {
                     </p>
                     <br />
                 </section>
+
+                <section className="mb-8" id="cookies">
+                    <h2 className="text-xl font-semibold mb-4">2. Het gebruik van cookies.</h2>
+                    <h3 className="text-lg font-semibold mb-2">2.1. Waarom cookies?</h3>
+                    <p>
+                        Triangel vzw plaatst specifieke cookies om het gebruiksgemak voor bezoekers te vergroten.
+                        Ze helpen in functionaliteit en zijn bedoeld om inzicht te krijgen in de werking en effectiviteit van de websites.
+                        Hierdoor zijn wij in staat structuur, navigatie en inhoud van de website zo gebruiksvriendelijk mogelijk te maken.
+                        De statistieken en overige rapportages kunnen wij niet herleiden tot personen, en zijn dus geanonimiseerd.
+                    </p>
+                    <br />
+                    <h3 className="text-lg font-semibold mb-2">3.2. Analytische cookies</h3>
+                    <p> Met analytische cookies wordt het gebruik van de website gemeten. Triangel vzw gebruikt Google Analytics 4 (GA4) om te meten
+                        hoeveel bezoekers op de website komen en hoe de website gebruikt wordt. Hiervoor worden cookies ingezet. Van de
+                        verzamelde informatie worden statistieken gemaakt. Deze statistieken geven ons inzicht in hoe vaak onze webpagina's
+                        bezocht worden, waar bezoekers de meeste tijd doorbrengen, enzovoort. Hierdoor zijn wij in staat structuur, navigatie en
+                        inhoud van de website zo gebruiksvriendelijk mogelijk te maken.</p>
+                    <br />
+                    <p> GA4 maakt gebruik van uw IP-adres, maar anonimiseert het (het IP-adres 73.67.46.24 wordt bijvoorbeeld opgeslagen als 73.67.46.0).
+                        De statistieken en overige rapportages kunnen niet tot individuele personen worden herleid.
+                        <br />
+                        Deze site gebruikt cookies voor:
+                    </p>
+                    <ul>
+                        <li className="ml-4 my-1">* het bijhouden van het aantal bezoekers op onze webpagina’s</li>
+                        <li className="ml-4 my-1">* het bijhouden van de tijdsduur die elke bezoeker doorbrengt op onze webpagina’s</li>
+                        <li className="ml-4 my-1">* het bekijken van de volgorde waarin een bezoeker de verschillende pagina’s van onze website bezoekt</li>
+                        <li className="ml-4 my-1">* het beoordelen welke delen van onze site aanpassing behoeven</li>
+                        <li className="ml-4 my-1">* het optimaliseren van de website</li>
+                    </ul>
+
+                    <br />
+
+                </section>
                 <section className="mb-8">
-                    <h2 className="text-xl font-semibold mb-4">2. Meer details over het verwerken van persoonlijke gegevens.</h2>
-                    <h3 className="text-lg font-semibold mb-2">2.1. Persoonsgegevens</h3>
+                    <h2 className="text-xl font-semibold mb-4">3. Meer details over het verwerken van persoonlijke gegevens.</h2>
+                    <h3 className="text-lg font-semibold mb-2">3.1. Persoonsgegevens</h3>
                     <p>
                         De Algemene Verordening Gegevensbescherming definieert een persoonsgegeven als volgt: “alle informatie over een geïdentificeerde of identificeerbare natuurlijke persoon; als identificeerbaar wordt beschouwd een natuurlijke persoon die direct of indirect kan worden geïdentificeerd, met name aan de hand van een identificator zoals een naam, een identificatienummer, locatiegegevens, een online identificator of van een of meer elementen die kenmerkend zijn voor de fysieke, fysiologische, genetische, psychische, economische, culturele of sociale identiteit van die natuurlijke persoon.”  Indien deze Privacy Policy naar persoonsgegevens verwijst, wordt verwezen naar deze definitie uit de Verordening.
                     </p>
                     <br />
-                    <h3 className="text-lg font-semibold mb-2">2.2. Welke persoonsgegevens worden verwerkt</h3>
+                    <h3 className="text-lg font-semibold mb-2">3.2. Welke persoonsgegevens worden verwerkt</h3>
                     <p>Triangel vzw verwerkt je persoonsgegevens in overeenstemming met Algemene Verordening Gegevensbescherming (AVG of GDPR) 2016/679 van
                         het Europees Parlement en de Raad van 27 april 2016 en andere toepasselijke Belgische wetgeving.</p>
                     <br />
-                    <p>Triangel vzw verzamelt en verwerkt jouw persoonsgegevens wanneer je gebruikmaakt van de professionele diensten van Triangel vzw. 
+                    <p>Triangel vzw verzamelt en verwerkt jouw persoonsgegevens wanneer je gebruikmaakt van de professionele diensten van Triangel vzw.
                         Bij deelname aan de test wordt je IP-adres versleuteld en geanonimiseerd opgeslagen in een database.
-                        Bij het invullen van een contactformulier op de website verstrek je je naam, telefoonnummer en adres die per mail 
-                        worden doorgestuurd naar Triangel Loopbaancentrum. Deze gegevens worden overgemaakt aan een job coach die jou via deze 
+                        Bij het invullen van een contactformulier op de website verstrek je je naam, telefoonnummer en adres die per mail
+                        worden doorgestuurd naar Triangel Loopbaancentrum. Deze gegevens worden overgemaakt aan een job coach die jou via deze
                         weg kan contacteren.
                         Indien je ook je e-mailadres bezorgt, wordt dat gekoppeld aan het geanonimiseerde IP-adres opgeslagen in de database.
                     </p>
                     <br />
-                    <h3 className="text-lg font-semibold mb-2">2.3. Bijzondere en/of gevoelige persoonsgegevens die wij verwerken</h3>
+                    <h3 className="text-lg font-semibold mb-2">3.3. Bijzondere en/of gevoelige persoonsgegevens die wij verwerken</h3>
                     <p>Onze website en/of dienst heeft niet de intentie gegevens te verzamelen over websitebezoekers die jonger zijn dan 16 jaar.
                         Tenzij ze toestemming hebben van ouders of voogd. We kunnen echter niet controleren of een bezoeker ouder dan 16 is.
                         Wij raden ouders dan ook aan betrokken te zijn bij de online activiteiten van hun kinderen, om zo te voorkomen dat er gegevens over
@@ -50,7 +84,7 @@ const PrivacyPolicy = () => {
                     <br />
                 </section>
                 <section className="mb-8">
-                    <h2 className="text-xl font-semibold mb-4">3. Gegevens inzien, aanpassen of verwijderen</h2>
+                    <h2 className="text-xl font-semibold mb-4">4. Gegevens inzien, aanpassen of verwijderen</h2>
                     <p>
                         Je hebt het recht om je persoonsgegevens in te zien, te corrigeren of te verwijderen.
                         Daarnaast heb je het recht om je eventuele toestemming voor de gegevensverwerking in te trekken of bezwaar te maken tegen
@@ -77,7 +111,7 @@ const PrivacyPolicy = () => {
                     <br />
                 </section>
                 <section className="mb-8">
-                    <h2 className="text-xl font-semibold mb-4">4. Hoe gaan wij om met persoonsgegevens?</h2>
+                    <h2 className="text-xl font-semibold mb-4">5. Hoe gaan wij om met persoonsgegevens?</h2>
                     <p>
                         We bewaren je gegevens veilig en zorgvuldig en houden ze niet langer bij dan nodig.
                         Je gegevens worden door Triangel vzw niet doorgegeven aan derden.
@@ -100,10 +134,10 @@ const PrivacyPolicy = () => {
                     <br />
                 </section>
                 <section>
-                <h2 className="text-xl font-semibold mb-4">5. Wijzigingen</h2>
+                    <h2 className="text-xl font-semibold mb-4">6. Wijzigingen</h2>
                     <p>
-                    Triangel vzw behoudt zich het recht voor om wijzigingen aan te brengen in dit privacy statement. 
-                    Check daarom regelmatig het privacybeleid van Triangel vzw op deze pagina.
+                        Triangel vzw behoudt zich het recht voor om wijzigingen aan te brengen in dit privacy statement.
+                        Check daarom regelmatig het privacybeleid van Triangel vzw op deze pagina.
                     </p>
                     <br />
                 </section>

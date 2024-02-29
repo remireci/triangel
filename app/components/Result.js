@@ -1,8 +1,9 @@
 // components/Result.js
 "use client"
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
+import { useReactToPrint } from 'react-to-print';
 import { toast } from 'react-toastify';
 
 const Result = ({ encryptedAddress }) => {    // Add logic to calculate and display the result based on user's answers
@@ -10,6 +11,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     const [categoryData, setCategoryData] = useState([]);
     const [answersData, setAnswersData] = useState([]);
     const [expandedCategories, setExpandedCategories] = useState([]);
+    const contentToPrint = useRef(null);
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -30,7 +32,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 if (item.category === "stress") {
                     if (item.irr === 3 || item.no === 3) {
                         result = 5;
-                    } else if (item.irr === 2 || item.no === 2) {                        
+                    } else if (item.irr === 2 || item.no === 2) {
                         result = 4;
                     } else {
                         result = item.no - item.yes;
@@ -38,7 +40,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                 } else {
                     if (item.irr === 3 || item.yes === 3) {
                         result = 5;
-                    } else if (item.irr === 2 || item.yes === 2) {                        
+                    } else if (item.irr === 2 || item.yes === 2) {
                         result = 4;
                     } else {
                         result = item.yes - item.no;
@@ -169,9 +171,17 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     };
 
 
-    const handlePrint = () => {
-        window.print();
-    };
+    // const handlePrint = () => {
+    //     window.print();
+    // };
+
+    const handlePrint = useReactToPrint({
+        documentTitle: "Print This Document",
+        onBeforePrint: () => console.log("before printing..."),
+        onAfterPrint: () => console.log("after printing..."),
+        removeAfterPrint: true,
+    });
+
 
     // Listen for beforeunload event
     window.addEventListener('beforeunload', () => {
@@ -186,9 +196,10 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
             <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-1/3 h-86 mx-4 mt-4 lg-custom:mt-10 lg-custom:-mb-10 px-1 md:px-2 lg-custom:px-6 py-6 text-base sm:text-sm bg-[#daebe8] rounded shadow'>
                 <div
                     className="flex flex-col items-center justify-center sm:pt-4"
-                    id="print-content"
+                    ref={contentToPrint}
                 >
-                    <p className="text-2xl font-bold mb-12">het resultaat</p>
+                    <p className="text-2xl font-bold mb-12 print-hidden">het resultaat</p>
+                    <p className="text-2xl font-bold mb-12 print-visible hidden">Gepersonaliseerd resultaat van uw loopbaantest</p>
                     {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult >= 24 ? (
                         <div className="flex flex-col items-center px-2 md-custom:px-12 lg:px-12">
                             <>
@@ -197,7 +208,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                                         return (
                                             <div key={index} className="result-category">
                                                 <span>{answer.answer_0}</span>
-                                                <details className="mt-2">
+                                                <details open={expandedCategories[index]} className="print-visible mt-2">
                                                     <summary className="text-slate-400 cursor-pointer" onClick={() => toggleExpand()}>
                                                         {toggleSummaryText()}
                                                     </summary>
@@ -255,15 +266,20 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                     ) : (
                         <p>No data available</p>
                     )}
-
+                    <p className="text-lg mt-40 print-visible hidden">Triangel Loopbaancentrum</p>
+                    <p className="text-lg print-visible hidden">info@triangelloopbaancentrum</p>
+                    <p className="text-lg mb-12 print-visible hidden">03 500 03 10</p>
                 </div>
                 <div className='flex justify-start mr-8 mt-10'>
                     <button
-                        onClick={handlePrint}
+                        onClick={() => {
+                            handlePrint(null, () => contentToPrint.current);
+                        }}
                         className="bg-[#87bdd8] w-max text-slate-200 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded text-sm px-2 py-1 text-center ml-4"
                     >
                         print
                     </button>
+
                 </div>
             </div>
             <div className='flex flex-col justify-between w-full md:w-3/5 lg:w-1/3 h-86 mx-4 mt-4 lg-custom:mt-10 lg-custom:-mb-10 px-1 md:px-2 lg-custom:px-6 py-6 text-base sm:text-sm bg-[#daebe8] rounded shadow'>

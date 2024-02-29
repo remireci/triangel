@@ -17,32 +17,57 @@
   }
 }
 
+/* cookies banner */
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.banner-slide-in {
+  animation: slide-in-from-bottom 1s ease;
+}
+
+
+.slide-in {
+  transform: translateX(100%);
+  animation: slide-in 0.5s forwards;
+}
+
+
 @media print {
+  
+  html, body {
+    height: auto;
+    overflow: hidden;
+  }
+
   @page {
     size: A4;
-    margin: 0;
+    margin: 2cm !important;
   }
-  body {
-    margin: 0;
+
+  @media print {
+    .print-hidden {
+      display: none;
+    }
+    
+    .print-visible {
+      display: block;
+    }
   }
-  body * {
-      visibility: hidden;
-  }
-  #print-content, #print-content * {
-      visibility: visible;
-  }
-  #print-content {
-      position: absolute;
-      left: 15mm;
-      top: 10mm;
-      width: 210mm;
-      height: 297mm;
-  }
+  
+
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #1c7eb4; /* Set the background color to #b7d7e8 */   
+  background-color: #1c7eb4; 
   position: relative;  
 }
 
