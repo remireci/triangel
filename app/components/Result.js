@@ -198,8 +198,8 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                     className="flex flex-col items-center justify-center sm:pt-4"
                     ref={contentToPrint}
                 >
-                    <p className="text-2xl font-bold mb-12 print-hidden">het resultaat</p>
-                    <p className="text-2xl font-bold mb-12 print-visible hidden">Gepersonaliseerd resultaat van uw loopbaantest</p>
+                    <p className="text-2xl text-center font-bold mb-12">Gepersonaliseerd resultaat van uw loopbaantest</p>
+
                     {categoryData && categoryData.length > 0 && categoryData[5].accumulatedResult >= 24 ? (
                         <div className="flex flex-col items-center px-2 md-custom:px-12 lg:px-12">
                             <>
