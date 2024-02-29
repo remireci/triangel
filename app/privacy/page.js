@@ -32,10 +32,10 @@ const PrivacyPolicy = () => {
                         De statistieken en overige rapportages kunnen wij niet herleiden tot personen, en zijn dus geanonimiseerd.
                     </p>
                     <br />
-                    <h3 className="text-lg font-semibold mb-2">3.2. Analytische cookies</h3>
+                    <h3 className="text-lg font-semibold mb-2">2.2. Analytische cookies</h3>
                     <p> Met analytische cookies wordt het gebruik van de website gemeten. Triangel vzw gebruikt Google Analytics 4 (GA4) om te meten
                         hoeveel bezoekers op de website komen en hoe de website gebruikt wordt. Hiervoor worden cookies ingezet. Van de
-                        verzamelde informatie worden statistieken gemaakt. Deze statistieken geven ons inzicht in hoe vaak onze webpagina's
+                        verzamelde informatie worden statistieken gemaakt. Deze statistieken geven ons inzicht in hoe vaak onze webpagina&apos;s
                         bezocht worden, waar bezoekers de meeste tijd doorbrengen, enzovoort. Hierdoor zijn wij in staat structuur, navigatie en
                         inhoud van de website zo gebruiksvriendelijk mogelijk te maken.</p>
                     <br />
@@ -45,9 +45,9 @@ const PrivacyPolicy = () => {
                         Deze site gebruikt cookies voor:
                     </p>
                     <ul>
-                        <li className="ml-4 my-1">* het bijhouden van het aantal bezoekers op onze webpagina’s</li>
-                        <li className="ml-4 my-1">* het bijhouden van de tijdsduur die elke bezoeker doorbrengt op onze webpagina’s</li>
-                        <li className="ml-4 my-1">* het bekijken van de volgorde waarin een bezoeker de verschillende pagina’s van onze website bezoekt</li>
+                        <li className="ml-4 my-1">* het bijhouden van het aantal bezoekers op onze webpagina&apos;s</li>
+                        <li className="ml-4 my-1">* het bijhouden van de tijdsduur die elke bezoeker doorbrengt op onze webpagina&apos;s</li>
+                        <li className="ml-4 my-1">* het bekijken van de volgorde waarin een bezoeker de verschillende pagina&apos;s van onze website bezoekt</li>
                         <li className="ml-4 my-1">* het beoordelen welke delen van onze site aanpassing behoeven</li>
                         <li className="ml-4 my-1">* het optimaliseren van de website</li>
                     </ul>
