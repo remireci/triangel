@@ -37,6 +37,35 @@ export const metadata = {
   },
 }
 
+
+// add JSON-LD structured data
+const addJsonLd = () => {
+  return {
+    __html: `{
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Triangel Loopbaantest",
+      "alternateName": "Gratis Loopbaantest",
+      "url": "https://www.triangel-loopbaantest.be",
+      "logo": "https://www.triangelloopbaancentrum.be/wp-content/uploads/2024/03/icon_cr.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+3235000310",
+        "contactType": "",
+        "areaServed": "BE",
+        "availableLanguage": "Dutch"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100092479596578",
+        "https://www.instagram.com/triangel_loopbaancentrum/"
+      ]
+    }  
+  };
+  `,
+  }
+}
+
+
 export default function RootLayout({
   children,
 }) {
@@ -44,10 +73,15 @@ export default function RootLayout({
     <html lang="nl">
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
-
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={addJsonLd()}
+          key="product-jsonld"
+        />
       </head>
 
       <body className={roboto.className}>
+
         <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">
           <Header />
           {children}
