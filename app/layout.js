@@ -47,7 +47,7 @@ const addJsonLd = () => {
       "name": "Triangel Loopbaantest",
       "alternateName": "Gratis Loopbaantest",
       "url": "https://www.triangel-loopbaantest.be",
-      "logo": "https://www.triangelloopbaancentrum.be/wp-content/uploads/2024/03/loopbaantest-SERP-image-01.jpg",
+      "logo": "https://www.triangelloopbaancentrum.be/wp-content/uploads/2024/03/icon_cr.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+3235000310",
