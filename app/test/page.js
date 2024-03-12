@@ -1,7 +1,7 @@
 // test.js
 // IP stored in Vercel postgres database 
 import Test from '../components/Test';
-import Nosecondtest from '../components/NoSecondtest';
+import NoSecondTest from '../components/NoSecondTest';
 import crypto from "crypto";
 import { headers } from "next/headers";
 import { sql } from '@vercel/postgres';
@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
 const TestPage = async () => {
   const testDone = await isTestDone();
   if (testDone) {
-    return <Nosecondtest />
+    return <NoSecondTest />
   }
   return <Test />
 }

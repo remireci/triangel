@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Nosecondtest = () => {
+const NosecondTest = () => {
 
     return (
         <div className='flex flex-row pb-36 lg:mt-48 text-slate-600'>
@@ -52,5 +52,4 @@ const Nosecondtest = () => {
     );
 }
 
-export default Nosecondtest;
-
+export default NosecondTest;
