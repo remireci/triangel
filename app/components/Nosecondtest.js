@@ -48,7 +48,9 @@ const NoSecondTest = () => {
                 </div>
             </div>
             <div className='w-0 lg-custom:w-1/5 lg:w-1/4'></div>
+            <div></div>
         </div>
+        
     );
 }
 
