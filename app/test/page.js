@@ -8,6 +8,7 @@ import { sql } from '@vercel/postgres';
 
 export const dynamic = 'force-dynamic';
 
+
 const TestPage = async () => {
   const testDone = await isTestDone();
   if (testDone) {
@@ -44,6 +45,5 @@ const isTestDone = async () => {
     return false; // Return false on error or if IP check fails
   }
 };
-
 
 export default TestPage;
