@@ -88,15 +88,15 @@ function generateEmailContent(data, questions) {
           <p>
             Beste jobcoach,</p>
           <p>Via de Loopbaantest biedt zich een kandidaat voor begeleiding aan.</p>
-          <p><strong>Dit zijn de contactgegevens van de kandidaat:</strong></p>
-          <p>Naam: {data.name}</p>
-          <p>Voornaam: {data.firstName}</p>
-          <p>Telefoonnummer: {data.phone}</p>
-          <p>Postcode: {data.postalCode}</p>
-          <p><a href={emailLink}>Mail: {data.email}</a></p>
+          <p><u><strong>Dit zijn de contactgegevens van de kandidaat:</strong></u></p>
+          <p><strong>Naam:</strong> {data.name}</p>
+          <p><strong>Voornaam:</strong> {data.firstName}</p>
+          <p><strong>Telefoonnummer:</strong> {data.phone}</p>
+          <p><strong>Postcode:</strong> {data.postalCode}</p>
+          <p><strong>Mail:</strong><a href={emailLink}> {data.email}</a></p>
         </div>
         <div className="section">
-          <p><strong>Hieronder vind je het resultaat van de test.</strong></p>
+          <p><u><strong>Hieronder vind je het resultaat van de test.</strong></u></p>
         </div>
 
         <div className="section">
