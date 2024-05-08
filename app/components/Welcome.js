@@ -52,7 +52,7 @@ const Welcome = () => {
       >
         <img
           src="/images/loopbaantest-job-ondersteuning.jpg"
-          alt="Vrijblijvend advies met de gratis loopbaantest."
+          alt="loopbaanbegeleiding in heel Vlaanderen - loopbaantest jobcoach"
           className="hidden"
           aria-hidden="true"
         />
