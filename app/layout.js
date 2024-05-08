@@ -26,7 +26,7 @@ export const metadata = {
 
   title: 'Gratis Loopbaantest',
   description: 'Vragen over je job en loopbaan? Doe de loopbaantest en bekijk meteen het resultaat en de knelpunten. Zet een nieuwe stap in je carrière.',
-  keywords: 'loopbaantest, Vlaanderen, VDAB, loopbaancheques, carrière advies, loopbaan, loopbaanbegeleiding, competenties, andere job, career coaching',
+  keywords: 'vlaanderen.be, jobcoach.be, loopbaantest.be, VDAB, loopbaancheques, carrière advies, loopbaanbegeleiding, autisme, career coaching',
   icons: {
     icon: '/icon.png',
     apple: '/apple-icon.png',
