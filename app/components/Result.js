@@ -2,6 +2,7 @@
 "use client"
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import Link from 'next/link';
 import Image from 'next/image';
 import { useReactToPrint } from 'react-to-print';
 import { toast } from 'react-toastify';
@@ -18,7 +19,7 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
     const [phone, setPhone] = useState('');
     const [postalCode, setPostalCode] = useState('');
     const [city, setCity] = useState('');
-
+    const [isPrivacyChecked, setIsPrivacyChecked] = useState(false);
 
     useEffect(() => {
         const storedCategoryData = JSON.parse(localStorage.getItem('categoryData'));
@@ -126,6 +127,12 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         // Check if the provided email is valid
         if (email && !emailRegex.test(email)) {
             toast.error('Je e-mailadres is niet geldig!');
+            return;
+        }
+
+        // check if user agrees with privacy policy
+        if (!isPrivacyChecked) {
+            toast.error('Je moet nog instemmem met het privacy beleid');
             return;
         }
 
@@ -345,6 +352,24 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                             className="h-8 bg-slate-100 px-2 rounded mt-2 w-full focus:outline-none focus:ring-2 focus:border-blue-500"
                         />
                         <p className='text-sm text-slate-400 italic mx-5 text-left -ml-0'>* Verplichte velden</p>
+                        <div className="flex items-center mt-4">
+                            <input
+                                type="checkbox"
+                                id="privacyPolicy"
+                                checked={isPrivacyChecked}
+                                onChange={(e) => setIsPrivacyChecked(e.target.checked)}
+                                className="mr-2"
+                                required
+                            />
+                            <label htmlFor="privacyPolicy">
+                                <p className="text-xs hover:text-gray-400">Ik ga akkoord met het{" "}
+                                     <Link href="/privacy" target="_blank">
+                                         Privacybeleid
+                                    </Link>
+                                </p>
+                            </label>
+                        </div>
+
                         <div className='flex justify-start mt-6 mb-16'>
                             <button
                                 className="bg-[#2f8bc9] w-20 text-slate-200 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-normal rounded text-sm px-2 py-1 text-center me-2 mb-2"
@@ -369,7 +394,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                             >
                                 meer info
                             </a>
-
                         </p>
                     </div>
                     <div className="flex flex-row w-28 md:w-32 justify-center bg-[#2f8bc9] hover:bg-blue-800 md:px-2 py-1 rounded-md cursor-pointer">

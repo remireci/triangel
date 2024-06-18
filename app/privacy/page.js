@@ -26,10 +26,8 @@ const PrivacyPolicy = () => {
                     <h2 className="text-xl font-semibold mb-4">2. Het gebruik van cookies.</h2>
                     <h3 className="text-lg font-semibold mb-2">2.1. Waarom cookies?</h3>
                     <p>
-                        Triangel vzw plaatst specifieke cookies om het gebruiksgemak voor bezoekers te vergroten.
-                        Ze helpen in functionaliteit en zijn bedoeld om inzicht te krijgen in de werking en effectiviteit van de websites.
-                        Hierdoor zijn wij in staat structuur, navigatie en inhoud van de website zo gebruiksvriendelijk mogelijk te maken.
-                        De statistieken en overige rapportages kunnen wij niet herleiden tot personen, en zijn dus geanonimiseerd.
+                        Triangel vzw plaatst specifieke cookies om statistieken te verzamelenover het gebruik van de website.
+                        De statistieken en rapportages zijn geanonimiseerd; ze zijn niet te herleiden tot personen.
                     </p>
                     <br />
                     <h3 className="text-lg font-semibold mb-2">2.2. Analytische cookies</h3>
@@ -45,15 +43,13 @@ const PrivacyPolicy = () => {
                         Deze site gebruikt cookies voor:
                     </p>
                     <ul>
-                        <li className="ml-4 my-1">* het bijhouden van het aantal bezoekers op onze webpagina&apos;s</li>
-                        <li className="ml-4 my-1">* het bijhouden van de tijdsduur die elke bezoeker doorbrengt op onze webpagina&apos;s</li>
-                        <li className="ml-4 my-1">* het bekijken van de volgorde waarin een bezoeker de verschillende pagina&apos;s van onze website bezoekt</li>
-                        <li className="ml-4 my-1">* het beoordelen welke delen van onze site aanpassing behoeven</li>
+                        <li className="ml-4 my-1">* het bijhouden van het aantal bezoekers op webpagina&apos;s</li>
+                        <li className="ml-4 my-1">* het bijhouden van de tijdsduur die elke bezoeker doorbrengt op webpagina&apos;s</li>
+                        <li className="ml-4 my-1">* het bekijken van de volgorde waarin een bezoeker de verschillende pagina&apos;s van de website bezoekt</li>
+                        <li className="ml-4 my-1">* het beoordelen welke delen van de site aanpassing behoeven</li>
                         <li className="ml-4 my-1">* het optimaliseren van de website</li>
                     </ul>
-
                     <br />
-
                 </section>
                 <section className="mb-8">
                     <h2 className="text-xl font-semibold mb-4">3. Meer details over het verwerken van persoonlijke gegevens.</h2>

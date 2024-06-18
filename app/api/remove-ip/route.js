@@ -4,7 +4,7 @@ import { sql } from '@vercel/postgres';
 
 export const dynamic = 'force-dynamic';
 
-async function removeIpAddress(ipAddress) {
+async function removeIpAddress(ipAddress) {    
 
     try {
         const secretKey = process.env.SECRET_KEY;
