@@ -9,9 +9,11 @@ function GoogleAnalyticsInner({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string
     const searchParams = useSearchParams();
 
     useEffect(() => {
-        // Construct the URL properly by joining pathname and searchParams
-        const url = pathname + '?' + searchParams.toString();
-        pageview(GA_MEASUREMENT_ID, url);
+        // Ensure searchParams is available before using it
+        if (searchParams) {
+            const url = pathname + '?' + searchParams.toString();
+            pageview(GA_MEASUREMENT_ID, url);
+        }
     }, [pathname, searchParams, GA_MEASUREMENT_ID]);
 
     return null;
