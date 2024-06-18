@@ -1,12 +1,10 @@
 "use client"
 import Script from "next/script";
 import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { pageview } from "../lib/gtagHelper.ts";
 
 export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string }) {
-
-    console.log(GA_MEASUREMENT_ID);
 
     const pathname = usePathname()
     const searchParams = useSearchParams()
@@ -19,12 +17,13 @@ export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_
     }, [pathname, searchParams, GA_MEASUREMENT_ID]);
 
     return (
-        <>
-            <Script strategy="afterInteractive"
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
-            <Script id='google-analytics' strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
+        <Suspense fallback={<div>Loading...</div>}>
+            <>
+                <Script strategy="afterInteractive"
+                    src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+                <Script id='google-analytics' strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
@@ -37,8 +36,9 @@ export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_
                     page_path: window.location.pathname,
                 });
                 `,
-                }}
-            />
-        </>
+                    }}
+                />
+            </>
+        </Suspense>
     )
 }
