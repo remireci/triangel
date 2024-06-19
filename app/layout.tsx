@@ -111,6 +111,7 @@ import Header from './components/Header';
 import Footer from "./components/Footer";
 import GoogleAnalytics from './components/GoogleAnalytics';
 import CookieBanner from './components/CookieBanner';
+import { Suspense } from 'react';
 
 
 const roboto = Roboto({
@@ -126,7 +127,7 @@ export const metadata: Metadata = {
   keywords: 'autisme, loopbaanvragen',
   icons: {
     icon: '/icon.png',
-  },  
+  },
 }
 
 export default function RootLayout({
@@ -144,13 +145,15 @@ export default function RootLayout({
       </head>
       {measurementId && <GoogleAnalytics GA_MEASUREMENT_ID={measurementId} />}
       <body className={roboto.className}>
-        <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">        
-          <Header />
-          {children}
-          <CookieBanner />
-          <Footer />
-        </div>
-        <ToastContainer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">
+            <Header />
+            {children}
+            <CookieBanner />
+            <Footer />
+          </div>
+          <ToastContainer />
+        </Suspense>
       </body>
     </html>
   )
