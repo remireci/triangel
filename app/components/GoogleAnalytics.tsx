@@ -1,20 +1,38 @@
 "use client"
 import Script from "next/script";
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
 import { useEffect, Suspense } from "react";
 import { pageview } from "../lib/gtagHelper.ts";
+import { log } from "console";
 
 function GoogleAnalyticsInner({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string }) {
     const pathname = usePathname();
-    const searchParams = useSearchParams();
+
+    // if URL's querystring is needed, use useSearchParams
+    // but problem with static rendering not solved yet...
+
+    // const searchParams = useSearchParams();
+
+    // useEffect(() => {
+    //     // Ensure searchParams is available before using it
+
+    //     if (searchParams) {
+    //         const url = pathname + '?' + searchParams.toString();
+    //         pageview(GA_MEASUREMENT_ID, url);
+    //         console.log('url', url);
+    //     }
+    // }, [pathname, searchParams, GA_MEASUREMENT_ID]);
+
+    // return null;
+
 
     useEffect(() => {
-        // Ensure searchParams is available before using it
-        if (searchParams) {
-            const url = pathname + '?' + searchParams.toString();
-            pageview(GA_MEASUREMENT_ID, url);
-        }
-    }, [pathname, searchParams, GA_MEASUREMENT_ID]);
+
+        console.log(pathname);
+        pageview(GA_MEASUREMENT_ID, pathname);
+
+    }, [pathname, GA_MEASUREMENT_ID]);
 
     return null;
 }
@@ -41,9 +59,9 @@ export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_
                     `,
                 }}
             />
-            <Suspense fallback={null}>
-                <GoogleAnalyticsInner GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
-            </Suspense>
+
+            <GoogleAnalyticsInner GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
+
         </>
     )
 }
