@@ -124,7 +124,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: 'Loopbaantest',
   description: 'Problemen op de job? Los het op!',
-  keywords: 'autisme, loopbaanvragen',
+  keywords: 'autisme, loopbaanvragen, loopbaanbegeleiding Vlaanderen, VDAB',
   icons: {
     icon: '/icon.png',
   },
