@@ -5,6 +5,7 @@ const PrivacyPolicy = () => {
         <div className="text-slate-500 bg-stone-100 min-h-screen py-16 mt-1 lg:mt-44 mb-6">
             <div className="container mx-auto px-4 w-full md:w-2/3 lg:w-1/3">
                 <h2 className="text-3xl font-semibold mb-8">Privacyverklaring</h2>
+                <p className="italic mb-4">Laatste aanpassing: 2025-05-27</p>
                 <section className="mb-8" id="privacy">
                     <h2 className="text-xl font-semibold mb-4">1. Wie is verantwoordelijk voor de verwerking van je gegevens?</h2>
 
@@ -23,34 +24,36 @@ const PrivacyPolicy = () => {
                 </section>
 
                 <section className="mb-8" id="cookies">
-                    <h2 className="text-xl font-semibold mb-4">2. Het gebruik van cookies.</h2>
-                    <h3 className="text-lg font-semibold mb-2">2.1. Waarom cookies?</h3>
+                    <h2 className="text-xl font-semibold mb-4">2. Het gebruik van cookies</h2>
+
+                    <h3 className="text-lg font-semibold mb-2">2.1. Geen gebruik van cookies</h3>
                     <p>
-                        Triangel vzw plaatst specifieke cookies om statistieken te verzamelenover het gebruik van de website.
-                        De statistieken en rapportages zijn geanonimiseerd; ze zijn niet te herleiden tot personen.
+                        Deze website maakt <strong>geen gebruik van cookies</strong>. Er worden geen gegevens op uw apparaat opgeslagen om u te volgen of om uw gedrag op de website te analyseren.
                     </p>
                     <br />
-                    <h3 className="text-lg font-semibold mb-2">2.2. Analytische cookies</h3>
-                    <p> Met analytische cookies wordt het gebruik van de website gemeten. Triangel vzw gebruikt Google Analytics 4 (GA4) om te meten
-                        hoeveel bezoekers op de website komen en hoe de website gebruikt wordt. Hiervoor worden cookies ingezet. Van de
-                        verzamelde informatie worden statistieken gemaakt. Deze statistieken geven ons inzicht in hoe vaak onze webpagina&apos;s
-                        bezocht worden, waar bezoekers de meeste tijd doorbrengen, enzovoort. Hierdoor zijn wij in staat structuur, navigatie en
-                        inhoud van de website zo gebruiksvriendelijk mogelijk te maken.</p>
-                    <br />
-                    <p> GA4 maakt gebruik van uw IP-adres, maar anonimiseert het (het IP-adres 73.67.46.24 wordt bijvoorbeeld opgeslagen als 73.67.46.0).
-                        De statistieken en overige rapportages kunnen niet tot individuele personen worden herleid.
-                        <br />
-                        Deze site gebruikt cookies voor:
+
+                    <h3 className="text-lg font-semibold mb-2">2.2. Privacyvriendelijke statistieken zonder cookies</h3>
+                    <p>
+                        Om inzicht te krijgen in het gebruik van onze website maken wij gebruik van <strong>Umami</strong>, een privacygerichte analysetool.
+                        Umami gebruikt <strong>geen cookies</strong> en verzamelt <strong>geen persoonlijk identificeerbare gegevens</strong>.
+                        De verzamelde informatie is volledig geanonimiseerd en wordt uitsluitend gebruikt om onze website te verbeteren.
                     </p>
+                    <br />
+                    <p>Umami registreert bijvoorbeeld:</p>
                     <ul>
-                        <li className="ml-4 my-1">* het bijhouden van het aantal bezoekers op webpagina&apos;s</li>
-                        <li className="ml-4 my-1">* het bijhouden van de tijdsduur die elke bezoeker doorbrengt op webpagina&apos;s</li>
-                        <li className="ml-4 my-1">* het bekijken van de volgorde waarin een bezoeker de verschillende pagina&apos;s van de website bezoekt</li>
-                        <li className="ml-4 my-1">* het beoordelen welke delen van de site aanpassing behoeven</li>
-                        <li className="ml-4 my-1">* het optimaliseren van de website</li>
+                        <li className="ml-4 my-1">* welke pagina&apos;s bezocht worden</li>
+                        <li className="ml-4 my-1">* het type apparaat (bijv. desktop of mobiel)</li>
+                        <li className="ml-4 my-1">* het type browser</li>
+                        <li className="ml-4 my-1">* via welke website bezoekers zijn doorgestuurd</li>
+                        <li className="ml-4 my-1">* algemene locatie op basis van geanonimiseerde IP-informatie</li>
                     </ul>
                     <br />
+                    <p>
+                        Alle gegevens worden geanonimiseerd verwerkt en opgeslagen op servers binnen de Europese Unie.
+                        De gegevens worden <strong>niet gedeeld met derden</strong> en zijn niet te herleiden tot individuele personen.
+                    </p>
                 </section>
+
                 <section className="mb-8">
                     <h2 className="text-xl font-semibold mb-4">3. Meer details over het verwerken van persoonlijke gegevens.</h2>
                     <h3 className="text-lg font-semibold mb-2">3.1. Persoonsgegevens</h3>
