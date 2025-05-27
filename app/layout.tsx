@@ -5,8 +5,6 @@ import { Roboto } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
 import Footer from "./components/Footer";
-import GoogleAnalytics from './components/GoogleAnalytics';
-import CookieBanner from './components/CookieBanner';
 import { Suspense } from 'react';
 
 
@@ -45,7 +43,6 @@ export default function RootLayout({
           <div className="flex flex-col sm:bg-[#cfe0e8] md:bg-[#cfe0e8] lg:bg-slate-100 min-h-screen">
             <Header />
             {children}
-            <CookieBanner />
             <Footer />
           </div>
           <ToastContainer />

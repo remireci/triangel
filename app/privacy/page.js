@@ -6,6 +6,7 @@ const PrivacyPolicy = () => {
             <div className="container mx-auto px-4 w-full md:w-2/3 lg:w-1/3">
                 <h2 className="text-3xl font-semibold mb-8">Privacyverklaring</h2>
                 <p className="italic mb-4">Laatste aanpassing: 2025-05-27</p>
+
                 <section className="mb-8" id="privacy">
                     <h2 className="text-xl font-semibold mb-4">1. Wie is verantwoordelijk voor de verwerking van je gegevens?</h2>
 
