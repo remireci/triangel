@@ -34,7 +34,6 @@ yarn-error.log*
 /app/api/decrypt-emails/
 /app/api/encrypt-emails/
 /app/api/recrypt-ips/
-/app/api/remove-ip/
 
 
 # custom excluded scripts
