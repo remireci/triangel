@@ -210,8 +210,9 @@ async function sendEmail(data, questions) {
         name: `Triangel Loopbaantest`,
         address: "info@triangel-loopbaantest.be",
       },
-      replyTo: "",      
-      to: ["dirk_mertens@fastmail.fm", "info@triangelloopbaancentrum.be"],
+      replyTo: "",
+      // to: ["dirk_mertens@fastmail.fm", "info@triangelloopbaancentrum.be"],
+      to: ["dirk_mertens@fastmail.fm"],
       subject: "Loopbaantest: Aanvraag voor begeleiding",
       html: htmlCoach,
     };

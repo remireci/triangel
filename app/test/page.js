@@ -5,6 +5,7 @@ import NoSecondTest from '../components/Nosecondtest';
 import crypto from "crypto";
 import { headers } from "next/headers";
 import { sql } from '@vercel/postgres';
+import { encryptNew } from '../lib/encryption';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,28 +22,38 @@ const TestPage = async () => {
 const isTestDone = async () => {
   try {
     const header = headers();
-    const ipAddress = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
+    let ipAddress = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
 
     // Check if the IP address exists in the database
-    const secretKey = process.env.SECRET_KEY;
-    const iv = process.env.IV;
-    // Data to be encrypted
-    const plainText = ipAddress;
-    // Create cipher object
-    const cipher = crypto.createCipheriv('aes-256-cbc', secretKey, iv);
-    // Encrypt the data
-    let encryptedText = cipher.update(plainText, 'utf-8', 'hex');
-    encryptedText += cipher.final('hex');
+    const secret = process.env.SECRET_KEY;
+    if (!secret) throw new Error("Missing SECRET_KEY");
+
+    // const hashedKey = crypto.createHash("sha256").update(secret).digest();
+    // const iv = crypto.randomBytes(16);
+
+    // const cipher = crypto.createCipheriv('aes-256-cbc', hashedKey, iv);
+    // // Encrypt the data
+    // let encrypted = cipher.update(ipAddress, 'utf-8');
+    // encrypted = Buffer.concat([encrypted, cipher.final()]);
+
+    // const combined = `${iv.toString("hex")}:${encrypted.toString("hex")}`;
+
+
+    const { encrypted, iv } = encryptNew(ipAddress, secret);
+    const combined = `${iv}:${encrypted}`;
+
+    console.log("Encrypted IP (ip_new):", combined);
 
     const result = await sql`
-      SELECT * FROM Ips WHERE Ip = ${encryptedText};
+      SELECT * FROM Ips WHERE ip_new = ${combined};
     `;
 
-    return result.rows.length > 0; // Return true if IP address exists, false otherwise
+    return result.rows.length > 0;
+
   } catch (error) {
-    console.error('Error fetching dynamic data:', error);
-    // Handle errors
-    return false; // Return false on error or if IP check fails
+    console.error('Error checking IP address:', error);
+
+    return false;
   }
 };
 

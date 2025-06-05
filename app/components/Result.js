@@ -158,11 +158,15 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
 
         try {
             // The add-ip route will also add the emailaddress
-            const response = await fetch(`/api/add-ip?ip=${encryptedAddress}&mail=${email}`, {
-                method: 'GET',
+            const response = await fetch(`/api/add-ip`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                body: JSON.stringify({
+                    ip: encryptedAddress,
+                    email
+                })
             });
 
             if (response.ok) {
@@ -177,10 +181,6 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
         }
     };
 
-
-    // const handlePrint = () => {
-    //     window.print();
-    // };
 
     const handlePrint = useReactToPrint({
         documentTitle: "Print This Document",
@@ -363,8 +363,8 @@ const Result = ({ encryptedAddress }) => {    // Add logic to calculate and disp
                             />
                             <label htmlFor="privacyPolicy">
                                 <p className="text-xs hover:text-gray-400">Ik ga akkoord met het{" "}
-                                     <Link href="/privacy" target="_blank">
-                                         Privacybeleid
+                                    <Link href="/privacy" target="_blank">
+                                        Privacybeleid
                                     </Link>
                                 </p>
                             </label>

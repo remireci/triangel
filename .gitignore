@@ -29,6 +29,19 @@ yarn-error.log*
 .env*.local
 .env
 
+# custom excluded API routes
+/app/api/create-ip-table/
+/app/api/decrypt-emails/
+/app/api/encrypt-emails/
+/app/api/recrypt-ips/
+/app/api/remove-ip/
+
+
+# custom excluded scripts
+/app/lib/connect.js
+/app/lib/questions.js
+/app/lib/test-decryption.js
+
 # vercel
 .vercel
 
