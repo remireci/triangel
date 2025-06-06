@@ -38,6 +38,7 @@ const PrivacyPolicy = () => {
                         Om de gebruikerservaring te verbeteren bij het invullen van onze loopbaantest, maakt deze website gebruik van de <code>localStorage</code>-functie van uw browser. Hiermee worden tijdelijke antwoorden lokaal op uw apparaat bewaard, zodat u niet alles opnieuw hoeft in te vullen bij een onderbreking.
                     </p>
                     <ul className="list-disc list-inside my-4">
+                        <p>De gegevens:</p>
                         <li>worden niet doorgestuurd naar onze servers;</li>
                         <li>bevatten geen persoonsgegevens;</li>
                         <li>worden uitsluitend lokaal en tijdelijk bewaard;</li>
@@ -52,7 +53,7 @@ const PrivacyPolicy = () => {
                     <p>
                         Om inzicht te krijgen in het gebruik van onze website maken wij gebruik van <strong>Umami</strong>, een privacygerichte analysetool.
                         Umami gebruikt <strong>geen cookies</strong> en verzamelt <strong>geen persoonlijk identificeerbare gegevens</strong>.
-                        De verzamelde informatie is volledig geanonimiseerd en wordt uitsluitend gebruikt om onze website te verbeteren.
+                        De verzamelde informatie is volledig geanonimiseerd en wordt uitsluitend gebruikt om onze website te verbeteren. De verwerking van anonieme bezoekersstatistieken via Umami gebeurt op basis van ons gerechtvaardigd belang (art. 6.1.f GDPR) om onze website te verbeteren.
                     </p>
                     <br />
                     <p>Umami registreert bijvoorbeeld:</p>
@@ -79,14 +80,14 @@ const PrivacyPolicy = () => {
                     <br />
                     <h3 className="text-lg font-semibold mb-2">3.2. Welke persoonsgegevens worden verwerkt</h3>
                     <p>Triamed NV verwerkt je persoonsgegevens in overeenstemming met Algemene Verordening Gegevensbescherming (AVG of GDPR) 2016/679 van
-                        het Europees Parlement en de Raad van 27 april 2016 en andere toepasselijke Belgische wetgeving.</p>
+                        het Europees Parlement en de Raad van 27 april 2016 en andere toepasselijke Belgische wetgeving. De verwerking gebeurt op basis van jouw toestemming (art. 6.1.a GDPR), uitvoering van een overeenkomst (art. 6.1.b), of gerechtvaardigd belang (art. 6.1.f), afhankelijk van het doel van de verwerking.</p>
                     <br />
                     <p>Triamed NV verzamelt en verwerkt jouw persoonsgegevens wanneer je gebruikmaakt van de professionele diensten van Triamed NV.
                         Bij deelname aan de test wordt je IP-adres versleuteld en geanonimiseerd opgeslagen in een database.
                         Bij het invullen van een contactformulier op de website verstrek je je naam, telefoonnummer en adres die per mail
                         worden doorgestuurd naar Triangel Loopbaancentrum. Deze gegevens worden overgemaakt aan een job coach die jou via deze
                         weg kan contacteren.
-                        Indien je ook je e-mailadres bezorgt, wordt dat gekoppeld aan het geanonimiseerde IP-adres opgeslagen in de database.
+                        Indien je ook je e-mailadres bezorgt, wordt dit afzonderlijk en versleuteld (met het AES-256-CBC-algoritme) opgeslagen in onze database. Ook het IP-adres wordt op dezelfde manier versleuteld bewaard. Deze gegevens worden niet aan elkaar gekoppeld. Door deze versleuteling blijven de gegevens onleesbaar en onbruikbaar voor derden, ook in het geval van een eventueel datalek. De verwerking gebeurt conform deze privacyverklaring.
                     </p>
                     <br />
                     <h3 className="text-lg font-semibold mb-2">3.3. Bijzondere en/of gevoelige persoonsgegevens die wij verwerken</h3>
