@@ -145,7 +145,7 @@ const PrivacyPolicy = () => {
                         regels inzake de bescherming van uw persoonsgegevens. Als je de indruk hebt dat jouw gegevens niet goed
                         beveiligd zijn of er aanwijzingen zijn van misbruik, of indien je meer informatie wenst over de
                         beveiliging van door Triamed NV verzamelde persoonsgegevens, neem dan contact met ons op via
-                        <a href="mailto:info@triamed.be" className="text-blue-500">info@triamed.be</a>.
+                        <a href="mailto:info@triamed.be" className="text-blue-500"> info@triamed.be</a>.
                     </p>
                     <br />
                 </section>
