@@ -56,16 +56,16 @@ const Welcome = () => {
         <div className="w-0 md:w-1/5 lg:w-1/5"></div>
       </div>
       <div
-        style={{
-          backgroundImage: `url(/images/loopbaantest-job-ondersteuning.jpg)`,
-        }}
+        // style={{
+        //   backgroundImage: `url(/images/loopbaantest-job-ondersteuning.jpg)`,
+        // }}
         className="flex flex-row relative items-end justify-center h-[80vh] px-4 md:px-0 pt-28 md:pt-36 lg:pt-36 w-screen bg-center lg:bg-left-top bg-cover"
         alt="Vrijblijvend advies met de gratis loopbaantest."
       >
         <img
           src="/images/loopbaantest-job-ondersteuning.jpg"
           alt="loopbaanbegeleiding in heel Vlaanderen - loopbaantest jobcoach"
-          className="blur-sm object-cover opacity-100 grayscale"
+          className="blur-lg max-h-max opacity-100 grayscale"
           aria-hidden="true"
         />
       </div>
